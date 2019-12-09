@@ -1,5 +1,4 @@
 var gProjs = [
-
   {
     id: makeId(),
     name: "AriellaGram",

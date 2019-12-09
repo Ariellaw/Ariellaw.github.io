@@ -1,4 +1,31 @@
 var gProjs = [
+
+  {
+    id: makeId(),
+    name: "AriellaGram",
+    title: 'My own version of Instagram built with Vue',
+    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Vitae voluptatem in distinctio eligendi tenetur earum deserunt velit, 
+    nam magni optio quibusdam eum pariatur totam est corrupti mollitia ab ut. Laborum!`,
+    imgUrl: "img/portfolio/library.jpg",
+    link: "https://ariellagram.herokuapp.com/#/",
+    publishedAt: 1448693940000,
+    labels: ["Matrixes", "keyboard events"]
+
+  },
+  {
+    id: makeId(),
+    name: "Palindromer",
+    title: 'Blablabla',
+    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+    Vitae voluptatem in distinctio eligendi tenetur earum deserunt velit, 
+    nam magni optio quibusdam eum pariatur totam est corrupti mollitia ab ut. Laborum!`,
+    imgUrl: "img/portfolio/library.jpg",
+    link: "minesweeper/main.html",
+    publishedAt: 1448693940000,
+    labels: ["Matrixes", "keyboard events"],
+    
+  },
     {
       id: makeId(),
       name: "Minesweeper",
@@ -25,32 +52,6 @@ var gProjs = [
       publishedAt: 1448693940000,
       labels: ["Matrixes", "keyboard events"]
 
-    },
-    {
-      id: makeId(),
-      name: "Library",
-      title: 'Blablabla',
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-      Vitae voluptatem in distinctio eligendi tenetur earum deserunt velit, 
-      nam magni optio quibusdam eum pariatur totam est corrupti mollitia ab ut. Laborum!`,
-      imgUrl: "img/portfolio/library.jpg",
-      link: "minesweeper/main.html",
-      publishedAt: 1448693940000,
-      labels: ["Matrixes", "keyboard events"]
-
-    },
-    {
-      id: makeId(),
-      name: "Example",
-      title: 'Blablabla',
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-      Vitae voluptatem in distinctio eligendi tenetur earum deserunt velit, 
-      nam magni optio quibusdam eum pariatur totam est corrupti mollitia ab ut. Laborum!`,
-      imgUrl: "img/portfolio/library.jpg",
-      link: "minesweeper/main.html",
-      publishedAt: 1448693940000,
-      labels: ["Matrixes", "keyboard events"],
-      
     },
     {
       id: makeId(),

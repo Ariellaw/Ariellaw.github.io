@@ -13,7 +13,7 @@ function renderProjs() {
     <div class="col-md-4 col-sm-6 portfolio-item" onclick="renderModal('${
       proj.id
     }')">
-    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal">
+    <a class="portfolio-link"  >
       <div class="portfolio-hover">
         <div class="portfolio-hover-content">
           <i class="fa fa-plus fa-3x"></i>
@@ -22,8 +22,8 @@ function renderProjs() {
       <img class="img-fluid" src=${proj.imgUrl} alt="">
     </a>
     <div class="portfolio-caption">
-      <h4>${proj.name}</h4>
-      <p class="text-muted">Entertainment</p>
+      <a target="_blank" href=${proj.link}><h4>${proj.name}</h4></a>
+      <a  target="_blank" data-toggle="modal" href="#portfolioModal"><p class="text-muted">More info</p></a>
     </div>
   </div>`;
   }
@@ -48,8 +48,7 @@ function renderModal(projId) {
         } alt="">
         <p id="project_description">${proj.description}</p>
         <ul id="project_info" class="list-inline">
-          <li>Date: ${proj.publishedAt}</li>
-          <li>Category:<span> Entertainment</span></li>
+          <li>Framework: ${proj.framework}</li>
           <li>Link to project: <a target="_blank" href=${proj.link}>${
     proj.name
   }</a> </li> </ul>

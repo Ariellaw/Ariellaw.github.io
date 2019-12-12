@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=main-container>\r\n    <app-palindrom-editor></app-palindrom-editor>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=main-container [ngClass]=\"{'rtl':rightToLeft}\">\r\n    <nav class=\"navbar\">\r\n            <h1 *ngIf=\"!rightToLeft\" (click)=\"rightToLeft=true\">Hebrew</h1>\r\n            <h1 *ngIf=\"rightToLeft\" (click)=\"rightToLeft=false\">אנגלית</h1>\r\n            <h1 class=\"title\">Palindromes Generator</h1>\r\n            <h1>Save</h1>\r\n            <h1>Profile</h1>\r\n    </nav>\r\n    <app-palindrom-editor></app-palindrom-editor>\r\n    <!-- Fix the buttons -->\r\n</div>\r\n\r\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"palindrom-container\" id=\"palindrom-container\">\r\n    <app-letter-box (moveFocus)=\"moveFocus($event)\"   (backspace)=\"onBackspaceLeft($event)\" *ngFor=\"let currLetter of lettersLeft ; let i = index\"\r\n     side=\"left\"   [character]=\"currLetter\" [index]=\"i\" (characterAdded)=\"onCharacterAddedLeft($event)\" (characterChanged)=\"onLetterInputLeft($event)\"></app-letter-box>\r\n    <app-pivot-letter (moveFocus)=\"moveFocus($event)\"  (backspace)=\"deleteLastLetterLeft()\" (delete)=\"deleteLastLetterRight()\" (newUserInput)=\"onPivotChanged($event)\"></app-pivot-letter>\r\n    <app-letter-box (moveFocus)=\"moveFocus($event)\"  (backspace)=\"onBackspaceRight($event)\" *ngFor=\"let currLetter of lettersRight; let i = index\"\r\n    side=\"right\" [character]=\"currLetter\" [index]=\"i\" (characterAdded)=\"onCharacterAddedRight($event)\" (characterChanged)=\"onLetterInputRight($event)\"></app-letter-box>\r\n\r\n\r\n\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n \r\n    <div class=\"palindrom-container\" id=\"palindrom-container\">\r\n        <app-letter-box (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceLeft($event)\"\r\n            *ngFor=\"let currLetter of lettersLeft ; let i = index\" side=\"left\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharLeft($event)\" (characterChanged)=\"onLetterInputLeft($event)\" (delete)=\"deleteLeft()\">\r\n        </app-letter-box>\r\n        <app-pivot-letter (moveFocus)=\"moveFocus($event)\" (backspace)=\"deleteLastLetterLeft()\"\r\n            (delete)=\"deleteLastLetterRight()\" (newUserInput)=\"onNewCharFromPivot($event)\"></app-pivot-letter>\r\n        <app-letter-box (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceRight($event)\"\r\n            *ngFor=\"let currLetter of lettersRight; let i = index\" side=\"right\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharRight($event)\" (characterChanged)=\"onLetterInputRight($event)\" (delete)=\"deleteRight()\">\r\n        </app-letter-box>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -343,7 +343,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".main-container {\n  height: 100vh;\n  width: 100%;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxBcmllbFxcRG9jdW1lbnRzXFxQcm9ncmFtbWluZyBwcm9qZWN0c1xccGFsaW5kcm9tZXIvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR0ksYUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0RKIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4tY29udGFpbmVye1xyXG4gICAgLy8gd2lkdGg6OTB2dztcclxuICAgIC8vIGJvcmRlcjoxcHggc29saWQgYmxhY2s7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgd2lkdGg6MTAwJTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4iLCIubWFpbi1jb250YWluZXIge1xuICBoZWlnaHQ6IDEwMHZoO1xuICB3aWR0aDogMTAwJTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".main-container {\n  height: 100vh;\n  width: 100%;\n  text-align: center;\n}\n\n.navbar {\n  background-color: #e4cb7d;\n  height: 10rem;\n  width: 100vw;\n  border-bottom: 3px solid #7dd3e4;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n}\n\n.navbar h1 {\n  margin: 0 10px 0 10px;\n  font: bold 24px/30px Georgia, \"Times New Roman\", Times, serif;\n  color: #694f10;\n  cursor: pointer;\n}\n\n.hidden {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxBcmllbFxcRG9jdW1lbnRzXFxQcm9ncmFtbWluZyBwcm9qZWN0c1xccGFsaW5kcm9tZXIvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBR0UsYUFBQTtFQUNBLFdBQUE7RUFDQSxrQkFBQTtBQ0RGOztBRElBO0VBQ0UseUJBQUE7RUFDQSxhQUFBO0VBQ0EsWUFBQTtFQUNBLGdDQUFBO0VBQ0EsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFDQSw2QkFBQTtBQ0RGOztBREdFO0VBQ0UscUJBQUE7RUFDQSw2REFBQTtFQUNBLGNBQUE7RUFDQSxlQUFBO0FDREo7O0FES0E7RUFDRSxrQkFBQTtBQ0ZGIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4tY29udGFpbmVyIHtcclxuICAvLyB3aWR0aDo5MHZ3O1xyXG4gIC8vIGJvcmRlcjoxcHggc29saWQgYmxhY2s7XHJcbiAgaGVpZ2h0OiAxMDB2aDtcclxuICB3aWR0aDogMTAwJTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5uYXZiYXIge1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNlNGNiN2Q7XHJcbiAgaGVpZ2h0OiAxMHJlbTtcclxuICB3aWR0aDogMTAwdnc7XHJcbiAgYm9yZGVyLWJvdHRvbTogM3B4IHNvbGlkICM3ZGQzZTQ7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGFsaWduLWl0ZW1zOmNlbnRlcjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcclxuXHJcbiAgaDEge1xyXG4gICAgbWFyZ2luOiAwIDEwcHggMCAxMHB4O1xyXG4gICAgZm9udDogYm9sZCAyNHB4LzMwcHggR2VvcmdpYSwgXCJUaW1lcyBOZXcgUm9tYW5cIiwgVGltZXMsIHNlcmlmO1xyXG4gICAgY29sb3I6ICM2OTRmMTA7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgfVxyXG59XHJcblxyXG4uaGlkZGVue1xyXG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcclxufVxyXG5cclxuLnRpdGxlIHt9XHJcbiIsIi5tYWluLWNvbnRhaW5lciB7XG4gIGhlaWdodDogMTAwdmg7XG4gIHdpZHRoOiAxMDAlO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5uYXZiYXIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTRjYjdkO1xuICBoZWlnaHQ6IDEwcmVtO1xuICB3aWR0aDogMTAwdnc7XG4gIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCAjN2RkM2U0O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogcm93O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWFyb3VuZDtcbn1cbi5uYXZiYXIgaDEge1xuICBtYXJnaW46IDAgMTBweCAwIDEwcHg7XG4gIGZvbnQ6IGJvbGQgMjRweC8zMHB4IEdlb3JnaWEsIFwiVGltZXMgTmV3IFJvbWFuXCIsIFRpbWVzLCBzZXJpZjtcbiAgY29sb3I6ICM2OTRmMTA7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmhpZGRlbiB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn0iXX0= */");
 
 /***/ }),
 
@@ -364,6 +364,7 @@ __webpack_require__.r(__webpack_exports__);
 let AppComponent = class AppComponent {
     constructor() {
         this.title = 'palindromer';
+        this.rightToLeft = "false";
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -467,6 +468,7 @@ let LetterBoxComponent = class LetterBoxComponent {
         this.backspace = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.moveFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.characterAdded = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.delete = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.punctionationRegex = /(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/;
         this.latinLettersRegex = /^[A-Za-z]+$/;
         this.hebrewLettersRegex = "^[א-ת]+$";
@@ -475,25 +477,31 @@ let LetterBoxComponent = class LetterBoxComponent {
     ngOnInit() {
         this.assignCharacterType();
     }
-    isLetterVerification(character) {
-        return character.match(this.latinLettersRegex) || character.match(this.hebrewLettersRegex);
+    isLetterVerification1(character) {
+        return (character.match(this.latinLettersRegex) ||
+            character.match(this.hebrewLettersRegex));
     }
     handleKeyup(event) {
         event.preventDefault();
         // var currText = event.target.innerText;
         var newChar = event.key;
-        console.log(event, event.keyCode);
-        if (newChar.length > 1) {
-            return;
+        if (event.keyCode === 37 || event.keyCode === 39) {
+            this.moveFocus.emit({ keyCode: event.keyCode, side: this.side, letterIdx: this.index });
         }
-        else if (event.keyCode === 37 || event.keyCode === 39) {
-            this.moveFocus.emit({ keyCode: event.keyCode });
-        }
-        else if (event.key === "Backspace") {
+        else if (event.keyCode === 8) {
             this.backspace.emit({
                 letterIndex: this.index,
                 character: this.character
             });
+        }
+        else if (event.keyCode === 46) {
+            this.delete.emit({
+                letterIndex: this.index,
+                character: this.character
+            });
+        }
+        else if (newChar.length > 1) {
+            return;
         }
         else {
             this.assignCharacterType();
@@ -504,7 +512,7 @@ let LetterBoxComponent = class LetterBoxComponent {
         }
     }
     assignCharacterType() {
-        var isLetter = this.isLetterVerification(this.character);
+        var isLetter = this.isLetterVerification1(this.character);
         if (isLetter) {
             this.typeOfChar = "letter";
         }
@@ -537,6 +545,9 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
 ], LetterBoxComponent.prototype, "characterAdded", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], LetterBoxComponent.prototype, "delete", void 0);
 LetterBoxComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: "app-letter-box",
@@ -565,7 +576,7 @@ LetterBoxComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".palindrom-container {\n  width: 80vw;\n  padding: 50px;\n  display: flex;\n  flex-wrap: wrap;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFsaW5kcm9tLWVkaXRvci9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXGFwcFxccGFsaW5kcm9tLWVkaXRvclxccGFsaW5kcm9tLWVkaXRvci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGFsaW5kcm9tLWVkaXRvci9wYWxpbmRyb20tZWRpdG9yLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtFQUNBLGFBQUE7RUFDQSxhQUFBO0VBQ0EsZUFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvcGFsaW5kcm9tLWVkaXRvci9wYWxpbmRyb20tZWRpdG9yLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBhbGluZHJvbS1jb250YWluZXJ7XHJcbiAgICB3aWR0aDo4MHZ3O1xyXG4gICAgcGFkZGluZzo1MHB4O1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtd3JhcDogd3JhcDtcclxufVxyXG5cclxuXHJcbiIsIi5wYWxpbmRyb20tY29udGFpbmVyIHtcbiAgd2lkdGg6IDgwdnc7XG4gIHBhZGRpbmc6IDUwcHg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtd3JhcDogd3JhcDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".palindrom-container {\n  width: 80vw;\n  padding: 50px;\n  display: flex;\n  flex-wrap: wrap;\n  margin: auto;\n  border: 1px dotted #7DD3E4;\n  margin-top: 5rem;\n  padding: 1rem;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  justify-content: center;\n}\n\n.rtl {\n  direction: rtl;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFsaW5kcm9tLWVkaXRvci9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXGFwcFxccGFsaW5kcm9tLWVkaXRvclxccGFsaW5kcm9tLWVkaXRvci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGFsaW5kcm9tLWVkaXRvci9wYWxpbmRyb20tZWRpdG9yLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksV0FBQTtFQUNBLGFBQUE7RUFDQSxhQUFBO0VBQ0EsZUFBQTtFQUNBLFlBQUE7RUFDQSwwQkFBQTtFQUNBLGdCQUFBO0VBQ0EsYUFBQTtFQUNBLDJCQUFBO0VBQUEsd0JBQUE7RUFBQSxtQkFBQTtFQUNBLHVCQUFBO0FDQ0o7O0FERUE7RUFDSSxjQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9wYWxpbmRyb20tZWRpdG9yL3BhbGluZHJvbS1lZGl0b3IuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucGFsaW5kcm9tLWNvbnRhaW5lcntcclxuICAgIHdpZHRoOiA4MHZ3O1xyXG4gICAgcGFkZGluZzogNTBweDtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LXdyYXA6IHdyYXA7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBib3JkZXI6IDFweCBkb3R0ZWQgIzdERDNFNDtcclxuICAgIG1hcmdpbi10b3A6IDVyZW07XHJcbiAgICBwYWRkaW5nOiAxcmVtO1xyXG4gICAgaGVpZ2h0OiBmaXQtY29udGVudDtcclxuICAgIGp1c3RpZnktY29udGVudDpjZW50ZXI7XHJcbn1cclxuXHJcbi5ydGwge1xyXG4gICAgZGlyZWN0aW9uOiBydGw7XHJcbiAgfVxyXG4iLCIucGFsaW5kcm9tLWNvbnRhaW5lciB7XG4gIHdpZHRoOiA4MHZ3O1xuICBwYWRkaW5nOiA1MHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LXdyYXA6IHdyYXA7XG4gIG1hcmdpbjogYXV0bztcbiAgYm9yZGVyOiAxcHggZG90dGVkICM3REQzRTQ7XG4gIG1hcmdpbi10b3A6IDVyZW07XG4gIHBhZGRpbmc6IDFyZW07XG4gIGhlaWdodDogZml0LWNvbnRlbnQ7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufVxuXG4ucnRsIHtcbiAgZGlyZWN0aW9uOiBydGw7XG59Il19 */");
 
 /***/ }),
 
@@ -585,243 +596,124 @@ __webpack_require__.r(__webpack_exports__);
 
 let PalindromEditorComponent = class PalindromEditorComponent {
     constructor() {
-        this.lettersLeft = ["t", "a", "c"];
-        this.lettersRight = ["c", "a", "t"];
+        this.lettersLeft = ["a", "b", "c"];
+        this.lettersRight = ["c", "b", "a"];
         this.punctionationRegex = /(~|`|!|@|#|$|%|^|&|\*|\(|\)|{|}|\[|\]|;|:|\"|'|<|,|\.|>|\?|\/|\\|\||-|_|\+|=)/;
         this.latinLettersRegex = /^[A-Za-z]+$/;
         this.hebrewLettersRegex = "^[א-ת]+$";
         this.letterBoxElement = "APP-LETTER-BOX";
         this.pivotElementNodeName = "APP-PIVOT-LETTER";
     }
+    // באב. ליל באב.
     ngOnInit() {
         this.pivotElement = document.getElementById("pivot-input");
         this.pivotElement.focus();
     }
-    //TODO - move to another file
-    //   isTextSelected(input) {
-    //     if (typeof input.selectionStart === "number") {
-    //         return input.selectionStart === 0 && input.selectionEnd === input.value.length;
-    //     } else if (typeof DOCUMENT.selection !== "undefined") {
-    //         input.focus();
-    //         return DOCUMENT.selection.createRange().text === input.value;
-    //     }
-    // }
-    isLetterVerification(character) {
-        return character.match(this.latinLettersRegex) || character.match(this.hebrewLettersRegex);
+    onAddCharRight($event) {
+        let rightIdx = $event.letterIndex;
+        let leftIdx = this.lettersRight.length - 1 - rightIdx;
+        let character = $event.character;
+        // var focusedElement = window.document.activeElement;
+        this.addNewChar(this.lettersLeft, leftIdx, this.lettersRight, rightIdx + 1, character);
+        this.focusOnNextPreviousElement("right", rightIdx, true, 1);
     }
+    onAddCharLeft($event) {
+        let leftIdx = $event.letterIndex;
+        let rightIdx = this.lettersLeft.length - 1 - leftIdx;
+        let character = $event.character;
+        // var focusedElement = window.document.activeElement;
+        this.addNewChar(this.lettersRight, rightIdx, this.lettersLeft, leftIdx + 1, character);
+        this.focusOnNextPreviousElement("left", leftIdx, true, 1);
+    }
+    onNewCharFromPivot($event) {
+        this.addNewChar(this.lettersLeft, this.lettersLeft.length, this.lettersRight, 0, $event.newLetter);
+    }
+    onChangeCharRight() { }
+    onChangeCharLeft() { }
+    onDeleteRight() { }
+    onDeleteLeft() { }
+    onBackspaceRight() { }
+    onBackspaceLeft() { }
     moveFocus($event) {
+        console.log("moveFocus", $event.letterIdx, $event.side);
         if ($event.keyCode === 39) {
-            this.moveFocusRight();
+            this.moveFocusRight($event.side, $event.letterIdx);
         }
         else {
-            this.moveFocusLeft();
+            this.moveFocusLeft($event.side, $event.letterIdx);
         }
     }
-    deleteLastLetterLeft() {
-        let character = this.lettersLeft[this.lettersLeft.length - 1];
-        if (this.lettersLeft.length > 0) {
-            this.onBackspaceLeft({
-                letterIndex: this.lettersLeft.length - 1,
-                character
-            });
+    /*HELPERFUNCTIONS */
+    moveFocusRight(side, letterIdx) {
+        if (side === "right" &&
+            letterIdx === this.lettersRight.length - 1) {
+            document.getElementById("left0").focus();
         }
-    }
-    deleteLastLetterRight() {
-        let character = this.lettersRight[0];
-        if (this.lettersRight.length > 0) {
-            this.onBackspaceRight({ letterIndex: 0, character });
-        }
-    }
-    moveFocusRight() {
-        var focusedElement = window.document.activeElement;
-        var nextElement = focusedElement.parentNode.nextSibling;
-        if (nextElement) {
-            if (this.nextElementIsLetterBox(focusedElement.parentNode, this.letterBoxElement) ||
-                this.nextElementIsLetterBox(focusedElement.parentNode, this.pivotElementNodeName)) {
-                this.focusOnElement(nextElement);
-            }
-            else if (nextElement.nextSibling) {
-                if (this.nextElementIsLetterBox(nextElement, this.letterBoxElement) ||
-                    this.nextElementIsLetterBox(nextElement, this.pivotElementNodeName)) {
-                    this.focusOnElement(nextElement.nextSibling);
-                }
-            }
-        }
-        else {
-            return;
-        }
-    }
-    moveFocusLeft() {
-        var focusedElement = window.document.activeElement;
-        var previousElement = focusedElement.parentNode.previousSibling;
-        if (previousElement) {
-            if (this.previousElementIsLetterBox(focusedElement.parentNode, this.letterBoxElement) ||
-                this.previousElementIsLetterBox(focusedElement.parentNode, this.pivotElementNodeName)) {
-                this.focusOnElement(previousElement);
-            }
-            else if (previousElement.previousSibling) {
-                if (this.previousElementIsLetterBox(previousElement, this.letterBoxElement) ||
-                    this.previousElementIsLetterBox(previousElement, this.pivotElementNodeName)) {
-                    this.focusOnElement(previousElement.previousSibling);
-                }
-            }
-        }
-        else {
-            return;
-        }
-    }
-    onPivotChanged($event) {
-        var character = $event.newLetter;
-        var isLetter = this.isLetterVerification(character);
-        if (isLetter) {
-            this.lettersLeft.push(character);
-            this.lettersRight.unshift(character);
-        }
-        else {
-            this.lettersRight.unshift(character);
-        }
-    }
-    onLetterInputRight($event) {
-        let rightIdx = $event.letterIndex;
-        let leftIdx = this.lettersRight.length - 1 - rightIdx;
-        let character = $event.character;
-        var isLetter = this.isLetterVerification(character);
-        if (isLetter) {
-            this.lettersLeft[leftIdx] = character;
-            this.lettersRight[rightIdx] = character;
-        }
-        else {
-            // this.lettersLeft[leftIdx] = "";
-            this.lettersRight[rightIdx] = character;
-        }
-    }
-    onLetterInputLeft($event) {
-        let leftIdx = $event.letterIndex;
-        let rightIdx = this.lettersRight.length - 1 - leftIdx;
-        let character = $event.character;
-        var isLetter = this.isLetterVerification(character);
-        if (isLetter) {
-            this.lettersLeft[leftIdx] = character;
-            this.lettersRight[rightIdx] = character;
-        }
-        else {
-            this.lettersLeft[leftIdx] = character;
-            // this.lettersRight[rightIdx] = "";
-        }
-    }
-    onCharacterAddedRight($event) {
-        let rightIdx = $event.letterIndex;
-        let leftIdx = this.lettersRight.length - 1 - rightIdx;
-        let character = $event.character;
-        var isLetter = this.isLetterVerification(character);
-        if (isLetter) {
-            this.lettersLeft.splice(leftIdx, 0, $event.character);
-            this.lettersRight.splice(rightIdx + 1, 0, $event.character);
-        }
-        else {
-            this.lettersRight.splice(rightIdx + 1, 0, $event.character);
-        }
-    }
-    onCharacterAddedLeft($event) {
-        let leftIdx = $event.letterIndex;
-        let rightIdx = this.lettersRight.length - 1 - leftIdx;
-        let character = $event.character;
-        var isLetter = this.isLetterVerification(character);
-        if (isLetter) {
-            this.lettersLeft.splice(leftIdx + 1, 0, character);
-            this.lettersRight.splice(rightIdx, 0, character);
-        }
-        else {
-            this.lettersLeft.splice(leftIdx + 1, 0, character);
-        }
-    }
-    onBackspaceLeft($event) {
-        var focusedElement = window.document.activeElement;
-        var previousElement = this.previousElementIsLetterBox(focusedElement.parentNode, this.letterBoxElement);
-        var nextElement = this.nextElementIsLetterBox(focusedElement.parentNode, this.letterBoxElement);
-        if ($event.letterIndex === this.lettersLeft.length - 1) {
+        else if (side === "left" &&
+            letterIdx === this.lettersLeft.length - 1) {
             this.pivotElement.focus();
         }
-        else if (previousElement) {
-            this.focusOnElement(previousElement);
-        }
-        else if (nextElement) {
-            this.focusOnElement(nextElement);
+        else if (side === "pivot-input") {
+            document.getElementById("right0").focus();
         }
         else {
-            this.pivotElement.focus();
+            this.focusOnNextPreviousElement(side, letterIdx, false, 1);
         }
-        let leftIdx = $event.letterIndex;
-        let deletedLetter = $event.character;
-        var isLetter = this.isLetterVerification(deletedLetter);
-        if (isLetter) {
-            var letterIdx = this.getLetterFrequency(leftIdx, deletedLetter, this.lettersLeft);
-            var letterToDelete = this.findIndexOnOppositeSide(this.lettersRight, deletedLetter, letterIdx);
-            this.lettersRight.splice(letterToDelete, 1);
-        }
-        this.lettersLeft.splice(leftIdx, 1);
     }
-    onBackspaceRight($event) {
-        var focusedElement = window.document.activeElement;
-        var previousElement = this.previousElementIsLetterBox(focusedElement.parentNode, this.letterBoxElement);
-        var nextElement = this.nextElementIsLetterBox(focusedElement.parentNode, this.letterBoxElement);
-        if ($event.letterIndex === 0) {
+    moveFocusLeft(side, letterIdx) {
+        if (side === "left" &&
+            letterIdx === 0) {
+            document.getElementById(`right${this.lettersRight.length - 1}`).focus();
+        }
+        else if (side === "right" &&
+            letterIdx === 0) {
             this.pivotElement.focus();
         }
-        else if (previousElement) {
-            this.focusOnElement(previousElement);
-        }
-        else if (nextElement) {
-            this.focusOnElement(nextElement);
+        else if (side === "pivot-input") {
+            document.getElementById(`left${this.lettersLeft.length - 1}`).focus();
         }
         else {
-            this.pivotElement.focus();
+            this.focusOnNextPreviousElement(side, letterIdx, false, -1);
         }
-        let rightIdx = $event.letterIndex;
-        let deletedLetter = $event.character;
-        var isLetter = this.isLetterVerification(deletedLetter);
-        if (isLetter) {
-            var letterIdx = this.getLetterFrequency(rightIdx, deletedLetter, this.lettersRight);
-            var letterToDelete = this.findIndexOnOppositeSide(this.lettersLeft, deletedLetter, letterIdx);
-            this.lettersLeft.splice(letterToDelete, 1);
-        }
-        this.lettersRight.splice(rightIdx, 1);
     }
-    nextElementIsLetterBox(currElement, nodeName) {
+    getNodeIfLetterBox(currElement) {
         var nextElement = currElement.nextSibling;
-        var element = nextElement && nextElement.nodeName === nodeName ? nextElement : null;
-        return element;
+        var nextNode = nextElement && nextElement.nodeName === this.letterBoxElement
+            ? nextElement
+            : "null";
+        return Promise.resolve(nextNode);
     }
-    previousElementIsLetterBox(currElement, nodeName) {
-        var previousElement = currElement.previousSibling;
-        var element = previousElement && previousElement.nodeName === nodeName
-            ? previousElement
-            : null;
-        return element;
-    }
-    focusOnElement(element) {
-        var activeElement = element.childNodes[0];
-        activeElement.focus();
-    }
-    getLetterFrequency(idx, letter, lettersArr) {
-        let letterIdx = 0;
-        for (var i = 0; i <= idx; i++) {
-            if (lettersArr[i] === letter) {
-                letterIdx++;
-            }
+    focusOnNextPreviousElement(side, id, waitForIt, backOrForward) {
+        var nextLetterBox = document.getElementById(side + (id + backOrForward));
+        if (nextLetterBox) {
+            nextLetterBox.focus();
         }
-        return letterIdx;
-    }
-    findIndexOnOppositeSide(lettersArr, letter, letterIdx) {
-        for (var i = lettersArr.length - 1; i >= 0; i--) {
-            if (lettersArr[i] === letter && letterIdx > 1) {
-                letterIdx--;
-            }
-            else if (lettersArr[i] === letter && letterIdx === 1) {
-                return i;
-            }
+        else if (waitForIt) {
+            var checkExist = setInterval(function () {
+                nextLetterBox = document.getElementById(side + (id + backOrForward));
+                if (nextLetterBox) {
+                    nextLetterBox.focus();
+                    clearInterval(checkExist);
+                }
+                // console.log("tried")
+            }, 100);
         }
+        else
+            return false;
     }
+    calculateWheretoDeleteFromOtherSide() { }
+    isLetterVerification(character) {
+        return (character.match(this.latinLettersRegex) ||
+            character.match(this.hebrewLettersRegex));
+    }
+    addNewChar(arr1, idx1, arr2, idx2, newChar) {
+        var isLetter = this.isLetterVerification(newChar);
+        if (isLetter) {
+            arr1.splice(idx1, 0, newChar);
+        }
+        arr2.splice(idx2, 0, newChar);
+    }
+    deleteChar() { }
 };
 PalindromEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -844,7 +736,7 @@ PalindromEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".pivot-box {\n  font-weight: bold;\n  border-radius: 9px;\n  font-size: 20px;\n  border: 4px solid blue;\n  text-align: center;\n  margin-right: 5px;\n  margin-bottom: 5px;\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n.pivot-box:focus {\n  border: 4px solid #15dfe6;\n  outline: none;\n  text-shadow: 0 0 0 red;\n}\n.expanded {\n  width: 25px;\n  height: 25px;\n  padding: 5px;\n  cursor: text;\n}\n.collapsed {\n  width: 0px;\n  height: 60px;\n  padding: 0px;\n  border-color: black;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGl2b3QtbGV0dGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcYXBwXFxwaXZvdC1sZXR0ZXJcXHBpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGl2b3QtbGV0dGVyL3Bpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0Esc0JBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLHdCQUFBO0FDQ0o7QURBSTtFQUNJLHlCQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0FDRVI7QURFQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7QUNDSjtBREdBO0VBQ0ksVUFBQTtFQUNBLFlBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9waXZvdC1sZXR0ZXIvcGl2b3QtbGV0dGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBpdm90LWJveHtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgYm9yZGVyLXJhZGl1czogOXB4O1xyXG4gICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgYm9yZGVyOiA0cHggc29saWQgYmx1ZTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTo1cHg7XHJcbiAgICBjb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgICB0ZXh0LXNoYWRvdzogMCAwIDAgYmxhY2s7XHJcbiAgICAmOmZvY3Vze1xyXG4gICAgICAgIGJvcmRlcjogNHB4IHNvbGlkIHJnYigyMSwgMjIzLCAyMzApO1xyXG4gICAgICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICAgICAgdGV4dC1zaGFkb3c6IDAgMCAwIHJlZDtcclxuICAgIH1cclxufVxyXG5cclxuLmV4cGFuZGVke1xyXG4gICAgd2lkdGg6IDI1cHg7XHJcbiAgICBoZWlnaHQ6IDI1cHg7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBjdXJzb3I6IHRleHQ7XHJcblxyXG59XHJcblxyXG4uY29sbGFwc2Vke1xyXG4gICAgd2lkdGg6IDBweDtcclxuICAgIGhlaWdodDogNjBweDtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGJvcmRlci1jb2xvcjpibGFjaztcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuIiwiLnBpdm90LWJveCB7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBib3JkZXItcmFkaXVzOiA5cHg7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgYm9yZGVyOiA0cHggc29saWQgYmx1ZTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gIHRleHQtc2hhZG93OiAwIDAgMCBibGFjaztcbn1cbi5waXZvdC1ib3g6Zm9jdXMge1xuICBib3JkZXI6IDRweCBzb2xpZCAjMTVkZmU2O1xuICBvdXRsaW5lOiBub25lO1xuICB0ZXh0LXNoYWRvdzogMCAwIDAgcmVkO1xufVxuXG4uZXhwYW5kZWQge1xuICB3aWR0aDogMjVweDtcbiAgaGVpZ2h0OiAyNXB4O1xuICBwYWRkaW5nOiA1cHg7XG4gIGN1cnNvcjogdGV4dDtcbn1cblxuLmNvbGxhcHNlZCB7XG4gIHdpZHRoOiAwcHg7XG4gIGhlaWdodDogNjBweDtcbiAgcGFkZGluZzogMHB4O1xuICBib3JkZXItY29sb3I6IGJsYWNrO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".pivot-box {\n  font-weight: bold;\n  border-radius: 9px;\n  font-size: 20px;\n  border: 4px solid #A17DE4;\n  text-align: center;\n  margin-right: 5px;\n  margin-bottom: 5px;\n  color: transparent;\n  text-shadow: 0 0 0 black;\n}\n.pivot-box:focus {\n  border: 4px solid #15dfe6;\n  outline: none;\n  text-shadow: 0 0 0 red;\n}\n.expanded {\n  width: 25px;\n  height: 25px;\n  padding: 5px;\n  cursor: text;\n}\n.collapsed {\n  width: 0px;\n  height: 60px;\n  padding: 0px;\n  border-color: black;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGl2b3QtbGV0dGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcYXBwXFxwaXZvdC1sZXR0ZXJcXHBpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGl2b3QtbGV0dGVyL3Bpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxlQUFBO0VBQ0EseUJBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLHdCQUFBO0FDQ0o7QURBSTtFQUNJLHlCQUFBO0VBQ0EsYUFBQTtFQUNBLHNCQUFBO0FDRVI7QURFQTtFQUNJLFdBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7QUNDSjtBREdBO0VBQ0ksVUFBQTtFQUNBLFlBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFDQSxlQUFBO0FDQUoiLCJmaWxlIjoic3JjL2FwcC9waXZvdC1sZXR0ZXIvcGl2b3QtbGV0dGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBpdm90LWJveHtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgYm9yZGVyLXJhZGl1czogOXB4O1xyXG4gICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgYm9yZGVyOiA0cHggc29saWQgI0ExN0RFNDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIG1hcmdpbi1yaWdodDogNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTo1cHg7XHJcbiAgICBjb2xvcjogdHJhbnNwYXJlbnQ7XHJcbiAgICB0ZXh0LXNoYWRvdzogMCAwIDAgYmxhY2s7XHJcbiAgICAmOmZvY3Vze1xyXG4gICAgICAgIGJvcmRlcjogNHB4IHNvbGlkIHJnYigyMSwgMjIzLCAyMzApO1xyXG4gICAgICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICAgICAgdGV4dC1zaGFkb3c6IDAgMCAwIHJlZDtcclxuICAgIH1cclxufVxyXG5cclxuLmV4cGFuZGVke1xyXG4gICAgd2lkdGg6IDI1cHg7XHJcbiAgICBoZWlnaHQ6IDI1cHg7XHJcbiAgICBwYWRkaW5nOiA1cHg7XHJcbiAgICBjdXJzb3I6IHRleHQ7XHJcblxyXG59XHJcblxyXG4uY29sbGFwc2Vke1xyXG4gICAgd2lkdGg6IDBweDtcclxuICAgIGhlaWdodDogNjBweDtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGJvcmRlci1jb2xvcjpibGFjaztcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuIiwiLnBpdm90LWJveCB7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xuICBib3JkZXItcmFkaXVzOiA5cHg7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgYm9yZGVyOiA0cHggc29saWQgI0ExN0RFNDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBtYXJnaW4tcmlnaHQ6IDVweDtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICBjb2xvcjogdHJhbnNwYXJlbnQ7XG4gIHRleHQtc2hhZG93OiAwIDAgMCBibGFjaztcbn1cbi5waXZvdC1ib3g6Zm9jdXMge1xuICBib3JkZXI6IDRweCBzb2xpZCAjMTVkZmU2O1xuICBvdXRsaW5lOiBub25lO1xuICB0ZXh0LXNoYWRvdzogMCAwIDAgcmVkO1xufVxuXG4uZXhwYW5kZWQge1xuICB3aWR0aDogMjVweDtcbiAgaGVpZ2h0OiAyNXB4O1xuICBwYWRkaW5nOiA1cHg7XG4gIGN1cnNvcjogdGV4dDtcbn1cblxuLmNvbGxhcHNlZCB7XG4gIHdpZHRoOiAwcHg7XG4gIGhlaWdodDogNjBweDtcbiAgcGFkZGluZzogMHB4O1xuICBib3JkZXItY29sb3I6IGJsYWNrO1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -876,10 +768,9 @@ let PivotLetterComponent = class PivotLetterComponent {
         this.pivotIsCollapsed = false;
     }
     onUserInput(event) {
-        var lettersRegex = /^[A-Za-z]+$/;
         var isOneCharacter = this.input.length === 1;
         if (event.keyCode === 37 || event.keyCode === 39) {
-            this.moveFocus.emit({ keyCode: event.keyCode });
+            this.moveFocus.emit({ keyCode: event.keyCode, side: "pivot-input", letterIdx: -1 });
         }
         else if (event.keyCode === 8 || event.keyCode === 46) {
             if (!this.pivotIsCollapsed) {
@@ -902,7 +793,6 @@ let PivotLetterComponent = class PivotLetterComponent {
             return;
         }
         else if (this.input.length === 2) {
-            this.pivotIsCollapsed = false;
             var newCharacter = this.input.charAt(0);
             this.newUserInput.emit({
                 newLetter: newCharacter

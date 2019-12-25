@@ -13,7 +13,7 @@ function renderProjs() {
     <div class="col-md-4 col-sm-6 portfolio-item" onclick="renderModal('${
       proj.id
     }')">
-    <a class="portfolio-link"  >
+    <a class="portfolio-link" href=${proj.link}  >
       <div class="portfolio-hover">
         <div class="portfolio-hover-content">
           <i class="fa fa-plus fa-3x"></i>
@@ -22,7 +22,7 @@ function renderProjs() {
       <img class="img-fluid" src=${proj.imgUrl} alt="">
     </a>
     <div class="portfolio-caption">
-      <a target="_blank" href=${proj.link}><h4>${proj.name}</h4></a>
+     <a target="_blank" href=${proj.link}><h4>${proj.name}</h4></a>
       <a  target="_blank" data-toggle="modal" href="#portfolioModal"><p class="text-muted">More info</p></a>
     </div>
   </div>`;
@@ -42,7 +42,6 @@ function renderModal(projId) {
   var elModalsContainer = document.querySelector(".modal-body");
 
   var strHtmlModals = `<h2> ${proj.name}</h2>
-        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
         <img class="img-fluid d-block mx-auto" id="project_img" src=${
           proj.imgUrl
         } alt="">

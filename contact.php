@@ -1,6 +1,15 @@
 <?php
-if($_POST["message"]) {
-    mail("ariellaw@gmail.com", "Form to email message", $_POST["message"], "From: an@email.address");
+if($_POST["submit"]) {
+$recipient = "ariellaw@gmail.com"; //my email
+$subject = 'Email message from portfolio site';
+$name = $_POST ["name"];
+$email = $_POST["email"];
+$phone = $_POST["mobile"];
+$message_heading = $_POST["subject"];
+$message = $_POST["message"];
+
+$mailBody="Name: $name\nEmail: $email\n$phone\n$message_heading\n$message";
+$mail($recipient, $subject, $mailBody, "From: $name <$email>");
 }
 ?>
 

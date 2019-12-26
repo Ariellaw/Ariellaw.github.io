@@ -1,3 +1,10 @@
+<?php
+if($_POST["message"]) {
+    mail("ariellaw@gmail.com", "Form to email message", $_POST["message"], "From: an@email.address");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +45,7 @@
       <div class="container">
         <div>
           <div class="form-area">
-            <form role="form"  method="post" action="contact.php">
+            <form role="form"  method="post" action="index.php" onSubmit="openCanvas">
               <br style="clear:both">
               <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
               <div class="form-group">

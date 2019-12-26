@@ -18,9 +18,7 @@ $(document).ready(function(){
 });
 
 
-function test(){
-    console.log("test");
-}
+
 function openCanvas(){
     console.log("the function is being called!");
     document.querySelector('.offcanvas-btn').classList.toggle('offcanvas-btn-open');

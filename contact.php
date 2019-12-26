@@ -1,5 +1,5 @@
 <?php
-if($_POST["submit"]) {
+if(isset($_POST["submit"])) {
 $recipient = "ariellaw@gmail.com"; //my email
 $subject = 'Email message from portfolio site';
 $name = $_POST ["name"];
@@ -9,7 +9,7 @@ $message_heading = $_POST["subject"];
 $message = $_POST["message"];
 
 $mailBody="Name: $name\nEmail: $email\n$phone\n$message_heading\n$message";
-gitmail($recipient, $subject, $mailBody, "From: $name <$email>");
+mail($recipient, $subject, $mailBody, "From: $name <$email>");
 }
 ?>
 

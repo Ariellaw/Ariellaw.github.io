@@ -9,7 +9,7 @@ $message_heading = $_POST["subject"];
 $message = $_POST["message"];
 
 $mailBody="Name: $name\nEmail: $email\n$phone\n$message_heading\n$message";
-$mail($recipient, $subject, $mailBody, "From: $name <$email>");
+gitmail($recipient, $subject, $mailBody, "From: $name <$email>");
 }
 ?>
 

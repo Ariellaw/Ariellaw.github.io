@@ -25,6 +25,8 @@ function openCanvas(){
     document.querySelector('.offcanvas-aside').classList.toggle('offcanvas-aside-open');    
 }
 
-function onFormSubmit(){
-    openCanvas();
+function submitForm($event){
+    $event.preventDefault();
+    console.log("submit form", $event)
+    // "https://ariellagram.herokuapp.com/contact"
 }

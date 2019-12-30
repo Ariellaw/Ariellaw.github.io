@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 function openCanvas() {
   console.log('the function is being called!')
-  document
+  documentg
     .querySelector('.offcanvas-btn')
     .classList.toggle('offcanvas-btn-open')
   document
@@ -38,7 +38,7 @@ function submitForm (event) {
     var message = form.querySelector('#message').value
 
     console.log(form, name, email, mobile,subject, message);
-  return axios.post("https://localhost:3003/#/contact", {name, email, mobile,subject, message}).then(res => {
+  return axios.post("https://ariellagram.herokuapp.com/contact", {name, email, mobile,subject, message}).then(res => {
       console.log("res.data",res.data)
     return res.data;
   })

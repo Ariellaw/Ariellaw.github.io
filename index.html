@@ -40,7 +40,7 @@
       <div class="container">
         <div>
           <div class="form-area">
-            <form role="form"  method="post"  onSubmit="submitForm($event)" style="margin-bottom: 3rem; padding-bottom:.5rem">
+            <form role="form"  method="post"  style="margin-bottom: 3rem">
               <br style="clear:both">
               <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
               <div class="form-group">
@@ -63,7 +63,7 @@
                 </span>
               </div>
 
-              <input type="submit" id="submit" name="submit" value="Submit"  class="btn btn-primary pull-right">
+              <button type="button" onClick="submitForm()"  class="btn btn-primary pull-right">Submit</button>
             </form>
           </div>
         </div>
@@ -84,9 +84,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#services">Specialities</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
           </li>
@@ -267,9 +267,13 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
 
     <!-- Custom scripts for this template -->
     <script src="js/ca-gallery.js"></script>

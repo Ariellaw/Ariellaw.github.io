@@ -1,4 +1,4 @@
-const wchar_tkDisableWebSecurity = "disable-web-security";
+// const wchar_tkDisableWebSecurity = "disable-web-security";
 
 $(document).ready(function () {
   $('#characterLeft').text('200 characters left')
@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 function openCanvas() {
   console.log('the function is being called!')
-  documentg
+  document
     .querySelector('.offcanvas-btn')
     .classList.toggle('offcanvas-btn-open')
   document
@@ -28,8 +28,8 @@ function openCanvas() {
     .classList.toggle('offcanvas-aside-open')
 }
 
-function submitForm (event) {
-  wchar_tkDisableWebSecurity;
+function submitForm () {
+  // wchar_tkDisableWebSecurity;
     var form = document.querySelector('form');
     var name = form.querySelector('#name').value
     var email = form.querySelector('#email').value

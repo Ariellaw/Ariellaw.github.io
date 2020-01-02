@@ -39,7 +39,7 @@ function submitForm () {
 
     console.log(form, name, email, mobile,subject, message);
   return axios.post("https://ariellagram.herokuapp.com/contact", {name, email, mobile,subject, message}).then(res => {
-      console.log("res.data",res.response, res)
+      console.log("res.data",res, res.data, res.data.response);
     return res.data;
   })
 }

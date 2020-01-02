@@ -1,8 +1,12 @@
-// const wchar_tkDisableWebSecurity = "disable-web-security";
+const successMessage = "250 OK , completed";
 
 $(document).ready(function () {
   $('#characterLeft').text('200 characters left')
   $('#message').keydown(function () {
+    $('#characterLeft').removeClass('notDisplayed');
+    $('#successMessage').addClass('notDisplayed');
+    $('#failureMessage').addClass('notDisplayed');
+
     var max = 200
     var len = $(this).val().length
     if (len >= max) {
@@ -19,7 +23,9 @@ $(document).ready(function () {
 })
 
 function openCanvas() {
-  console.log('the function is being called!')
+  $('#successMessage').addClass('notDisplayed');
+  $('#failureMessage').addClass('notDisplayed');
+
   document
     .querySelector('.offcanvas-btn')
     .classList.toggle('offcanvas-btn-open')
@@ -29,19 +35,29 @@ function openCanvas() {
 }
 
 function submitForm () {
-  // wchar_tkDisableWebSecurity;
     var form = document.querySelector('form');
-    var name = form.querySelector('#name').value
-    var email = form.querySelector('#email').value
-    var mobile = form.querySelector('#mobile').value
-    var subject = form.querySelector('#subject').value
-    var message = form.querySelector('#message').value
+    var nameEl = form.querySelector('#name');
+    var emailEl = form.querySelector('#email');
+    var mobileEl = form.querySelector('#mobile');
+    var subjectEl = form.querySelector('#subject');
+    var messageEl = form.querySelector('#message');
+    $('#loading').removeClass('notDisplayed');
 
-    console.log(form, name, email, mobile,subject, message);
-  return axios.post("https://ariellagram.herokuapp.com/contact", {name, email, mobile,subject, message}).then(res => {
-      console.log("res.data",res, res.data, res.data.response);
-    return res.data;
-  })
+  return axios.post("https://ariellagram.herokuapp.com/contact",{name:nameEl.value, email:emailEl.value, mobile:mobileEl.value,subject:subjectEl.value, message:messageEl.value}).then(res => {
+  // return axios.post("http://localhost:3003/contact", {name:nameEl.value, email:emailEl.value, mobile:mobileEl.value,subject:subjectEl.value, message:messageEl.value}).then(res => {
+      if(res.data===successMessage){
+        nameEl.value="";
+        emailEl.value="";
+        mobileEl.value="";
+        subjectEl.value="";
+        messageEl.value="";
+        $('#successMessage').removeClass('notDisplayed');
+      }else{
+        $('#failureMessage').removeClass('notDisplayed');
+      }
+      $('#loading').addClass('notDisplayed');
+      $('#characterLeft').addClass('notDisplayed');
+  })  
 }
 
 // "https://ariellagram.herokuapp.com/contact"

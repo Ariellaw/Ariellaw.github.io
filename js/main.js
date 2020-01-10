@@ -19,7 +19,7 @@ function renderProjs() {
           <i class="fa fa-plus fa-3x"></i>
         </div>
       </div>
-      <img class="img-fluid" src=${proj.imgUrl} alt="">
+      <img class="img-fluid img-size" src=${proj.imgUrl} alt="">
     </a>
     <div class="portfolio-caption">
      <a target="_blank" href=${proj.link}><h4>${proj.name}</h4></a>

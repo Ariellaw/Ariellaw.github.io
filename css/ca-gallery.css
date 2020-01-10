@@ -40,6 +40,12 @@ h6 {
   /* text-transform: uppercase; */
 }
 
+@media (max-width: 950px){
+  h4{
+    font-size: 27px;
+  }
+}
+
 section {
   padding: 100px 0;
 }
@@ -924,4 +930,8 @@ fieldset[disabled] .btn-xl:hover {
 .btn-xl .badge {
   color: #fed136;
   background-color: white;
+}
+
+.img-size{
+  height: 6rem;
 }

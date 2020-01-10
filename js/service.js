@@ -4,7 +4,7 @@ var gProjs = [
     name: "AriellaGram",
     title: "My own version of Instagram built with Vue",
     description: `This is my first fullstack project.  I used Vue, Node.js and MongoDB.  It is my imitation of Instagram.`,
-    imgUrl: "img/portfolio/ariellaGram.jpg",
+    imgUrl: "img/portfolio/ariellaGram.png",
     link: "https://ariellagram.herokuapp.com/#/",
     framework: "Vue",
     labels: ["Vue", "keyboard events"]

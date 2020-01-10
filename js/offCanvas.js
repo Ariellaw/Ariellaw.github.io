@@ -7,7 +7,7 @@ $(document).ready(function () {
     $('#successMessage').addClass('notDisplayed');
     $('#failureMessage').addClass('notDisplayed');
 
-    var max = 200
+    var max = 300
     var len = $(this).val().length
     if (len >= max) {
       $('#characterLeft').text('You have reached the limit')

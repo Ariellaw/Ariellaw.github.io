@@ -932,10 +932,10 @@ fieldset[disabled] .btn-xl:hover {
   background-color: white;
 }
 
-/* .img-size{
+.img-size{
   height: 11rem;
   @media (max-width:900px) {
     height: 6rem;
 
   }
-} */
+}

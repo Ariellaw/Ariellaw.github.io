@@ -50,7 +50,9 @@ function renderModal(projId) {
           <li>Framework: ${proj.framework}</li>
           <li>Link to project: <a target="_blank" href=${proj.link}>${
     proj.name
-  }</a> </li> </ul>
+  }</a> </li> 
+  <li><a target="_blank" href=${proj.linkToGithub}>Link to Github</a></li>
+  </ul>
         <button class="btn btn-primary" data-dismiss="modal" type="button">
           <i class="fa fa-times"></i>
           Close Project</button>`;

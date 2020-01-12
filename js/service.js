@@ -5,7 +5,8 @@ var gProjs = [
     title: "My own version of Instagram built with Vue",
     description: `This is my first fullstack project.  I used Vue, Node.js and MongoDB.  It is my imitation of Instagram.`,
     imgUrl: "img/portfolio/ariellaGram.png",
-    link: "https://ariellagram.herokuapp.com/#/",
+    link: "https://ariellagram.herokuapp.com/#/login",
+    linkToGithub:"https://github.com/Ariellaw/my-insta",
     framework: "Vue",
     labels: ["Vue", "keyboard events"]
   },
@@ -16,6 +17,7 @@ var gProjs = [
     description: `This is my first Angular project.  It helps users create palindromes, which are words or sentences that read the same way forwards or backwards.`,
     imgUrl: "img/portfolio/palindromer.PNG",
     link: "palindromer",
+    linkToGithub:"https://github.com/Ariellaw/palindromer",
     framework: "Angular",
     labels: ["Angular", "keyboard events"]
   }

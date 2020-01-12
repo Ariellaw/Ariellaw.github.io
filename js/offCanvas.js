@@ -60,5 +60,4 @@ function submitForm () {
   })  
 }
 
-// "https://ariellagram.herokuapp.com/contact"
 

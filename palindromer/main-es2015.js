@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div  [ngClass]=\"{'rtl':isRightToLeft}\">\r\n    <div class=\"palindrom-container\" id=\"palindrom-container\">\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceLeft($event)\"\r\n            *ngFor=\"let currLetter of lettersLeft ; let i = index\" side=\"left\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharLeft($event)\" (newUserInput)=\"onNewCharFromPivot($event)\" (characterChanged)=\"onCharacterChangedLeft($event)\" (delete)=\"deleteLeft($event)\">\r\n        </app-letter-box>\r\n        <app-pivot-letter (moveFocus)=\"moveFocus($event)\" (backspace)=\"backspaceFromPivot()\"\r\n            (delete)=\"deleteFromPivot()\" (newUserInput)=\"onNewCharFromPivot($event)\"></app-pivot-letter>\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceRight($event)\"\r\n            *ngFor=\"let currLetter of lettersRight; let i = index\" side=\"right\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharRight($event)\" (characterChanged)=\"onCharacterChangedRight($event)\" (delete)=\"deleteRight($event)\">\r\n        </app-letter-box>\r\n    </div>\r\n        <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(true)\"  *ngIf=\"isRightToLeft===false\">Switch to Right to Left</button>  \r\n    <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(false)\" *ngIf=\"isRightToLeft===true\">Switch to Left to Right</button>  \r\n</div>\r\n\r\n<!-- (changeScreenDirection)=changeScreenDirection($event) [isRightToLeft]=\"isRightToLeft\" -->");
+/* harmony default export */ __webpack_exports__["default"] = ("<div  [ngClass]=\"{'rtl':isRightToLeft}\">\r\n    <div class=\"palindrom-container\" id=\"palindrom-container\">\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\" (deleteNextChar)=\"onDeleteNextChar($event)\" (deletePreviousChar)=\"onDeletePreviousChar($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceLeft($event)\"\r\n            *ngFor=\"let currLetter of lettersLeft ; let i = index\" side=\"left\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharLeft($event)\"  (characterChanged)=\"onCharacterChangedLeft($event)\" (delete)=\"deleteLeft($event)\">\r\n        </app-letter-box>\r\n        <app-pivot-letter (moveFocus)=\"moveFocus($event)\" (backspace)=\"backspaceFromPivot()\"\r\n            (delete)=\"deleteFromPivot()\" (newUserInput)=\"onNewCharFromPivot($event)\"></app-pivot-letter>\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\"  (deleteNextChar)=\"onDeleteNextChar($event)\" (deletePreviousChar)=\"onDeletePreviousChar($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceRight($event)\"\r\n            *ngFor=\"let currLetter of lettersRight; let i = index\" side=\"right\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharRight($event)\" (characterChanged)=\"onCharacterChangedRight($event)\" (delete)=\"deleteRight($event)\">\r\n        </app-letter-box>\r\n    </div>\r\n        <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(true)\"  *ngIf=\"isRightToLeft===false\">Switch to Right to Left</button>  \r\n    <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(false)\" *ngIf=\"isRightToLeft===true\">Switch to Left to Right</button>  \r\n</div>\r\n\r\n<!-- (changeScreenDirection)=changeScreenDirection($event) [isRightToLeft]=\"isRightToLeft\" -->");
 
 /***/ }),
 
@@ -382,7 +382,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".main-container {\n  width: 90%;\n  margin: auto;\n  height: 100vh;\n  text-align: center;\n}\n\n.hidden {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxBcmllbFxcRG9jdW1lbnRzXFxQcm9ncmFtbWluZyBwcm9qZWN0c1xccGFsaW5kcm9tZXIvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7RUFDQSxhQUFBO0VBQ0Esa0JBQUE7QUNGRjs7QURNQTtFQUNFLGtCQUFBO0FDSEYiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0ICcuLi9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcclxuXHJcblxyXG4ubWFpbi1jb250YWluZXIge1xyXG4gIHdpZHRoOiA5MCU7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG5cclxuLmhpZGRlbntcclxuICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbn1cclxuXHJcblxyXG4iLCIubWFpbi1jb250YWluZXIge1xuICB3aWR0aDogOTAlO1xuICBtYXJnaW46IGF1dG87XG4gIGhlaWdodDogMTAwdmg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLmhpZGRlbiB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".main-container {\n  width: 90%;\n  height: 80vh;\n  text-align: center;\n  top: 10rem;\n  position: absolute;\n  padding: 1rem;\n  margin-left: auto;\n  margin-right: auto;\n  display: inline-block;\n  transform: translate(-50%);\n}\n\n.hidden {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxBcmllbFxcRG9jdW1lbnRzXFxQcm9ncmFtbWluZyBwcm9qZWN0c1xccGFsaW5kcm9tZXIvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSwwQkFBQTtBQ0ZGOztBRE9BO0VBQ0Usa0JBQUE7QUNKRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5cclxuXHJcbi5tYWluLWNvbnRhaW5lciB7XHJcbiAgd2lkdGg6IDkwJTtcclxuICBoZWlnaHQ6IDgwdmg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRvcDogMTByZW07XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHBhZGRpbmc6IDFyZW07XHJcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG4gIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xyXG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUpO1xyXG5cclxufVxyXG5cclxuXHJcbi5oaWRkZW57XHJcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG59XHJcblxyXG5cclxuIiwiLm1haW4tY29udGFpbmVyIHtcbiAgd2lkdGg6IDkwJTtcbiAgaGVpZ2h0OiA4MHZoO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRvcDogMTByZW07XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcGFkZGluZzogMXJlbTtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlKTtcbn1cblxuLmhpZGRlbiB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn0iXX0= */");
 
 /***/ }),
 
@@ -569,7 +569,7 @@ ServicesService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".footer {\n  border-top: 3px solid #7fd7e8;\n  height: 10rem;\n  width: 100vw;\n  position: absolute;\n  bottom: 0;\n}\n@media screen and (min-width: 700px) {\n  .footer {\n    visibility: hidden;\n  }\n}\n.footer .portfolio-icons-container {\n  width: 8rem;\n  margin-right: 5rem;\n  float: right;\n  margin-top: 1rem;\n}\n.footer .portfolio-icons-container .portfolio-icons {\n  width: 3rem;\n  height: 3rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9vdGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcYXBwXFxmb290ZXJcXGZvb3Rlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNJLDZCQUFBO0VBQ0EsYUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7QUNGSjtBREdJO0VBTko7SUFPUSxrQkFBQTtFQ0FOO0FBQ0Y7QURDSTtFQUNJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtBQ0NSO0FEQVE7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ0VaIiwiZmlsZSI6InNyYy9hcHAvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5AaW1wb3J0ICcuLi8uLi9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcclxuXHJcbi5mb290ZXJ7XHJcbiAgICBib3JkZXItdG9wOiAzcHggc29saWQgJGVtcGhhc2lzX2JsdWU7XHJcbiAgICBoZWlnaHQ6IDEwcmVtO1xyXG4gICAgd2lkdGg6IDEwMHZ3O1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgQG1lZGlhIHNjcmVlbiBhbmQgKG1pbi13aWR0aDogNzAwcHgpIHtcclxuICAgICAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbiAgICB9XHJcbiAgICAucG9ydGZvbGlvLWljb25zLWNvbnRhaW5lcntcclxuICAgICAgICB3aWR0aDogOHJlbTtcclxuICAgICAgICBtYXJnaW4tcmlnaHQ6IDVyZW07XHJcbiAgICAgICAgZmxvYXQ6IHJpZ2h0O1xyXG4gICAgICAgIG1hcmdpbi10b3A6IDFyZW07XHJcbiAgICAgICAgLnBvcnRmb2xpby1pY29uc3tcclxuICAgICAgICAgICAgd2lkdGg6IDNyZW07XHJcbiAgICAgICAgICAgIGhlaWdodDogM3JlbTsgIFxyXG4gICAgICAgIH0gICBcclxuICAgIH1cclxufVxyXG5cclxuXHJcbiAgICIsIi5mb290ZXIge1xuICBib3JkZXItdG9wOiAzcHggc29saWQgIzdmZDdlODtcbiAgaGVpZ2h0OiAxMHJlbTtcbiAgd2lkdGg6IDEwMHZ3O1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIGJvdHRvbTogMDtcbn1cbkBtZWRpYSBzY3JlZW4gYW5kIChtaW4td2lkdGg6IDcwMHB4KSB7XG4gIC5mb290ZXIge1xuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcbiAgfVxufVxuLmZvb3RlciAucG9ydGZvbGlvLWljb25zLWNvbnRhaW5lciB7XG4gIHdpZHRoOiA4cmVtO1xuICBtYXJnaW4tcmlnaHQ6IDVyZW07XG4gIGZsb2F0OiByaWdodDtcbiAgbWFyZ2luLXRvcDogMXJlbTtcbn1cbi5mb290ZXIgLnBvcnRmb2xpby1pY29ucy1jb250YWluZXIgLnBvcnRmb2xpby1pY29ucyB7XG4gIHdpZHRoOiAzcmVtO1xuICBoZWlnaHQ6IDNyZW07XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".footer {\n  border-top: 3px solid #7fd7e8;\n  height: 10rem;\n  width: 100vw;\n  position: absolute;\n  bottom: 0;\n}\n@media (min-width: 700px) {\n  .footer {\n    visibility: hidden;\n  }\n}\n.footer .portfolio-icons-container {\n  width: 8rem;\n  margin-right: 5rem;\n  float: right;\n  margin-top: 1rem;\n}\n.footer .portfolio-icons-container .portfolio-icons {\n  width: 3rem;\n  height: 3rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZm9vdGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcYXBwXFxmb290ZXJcXGZvb3Rlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFHQTtFQUNJLDZCQUFBO0VBQ0EsYUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLFNBQUE7QUNGSjtBREdJO0VBTko7SUFPUSxrQkFBQTtFQ0FOO0FBQ0Y7QURDSTtFQUNJLFdBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxnQkFBQTtBQ0NSO0FEQVE7RUFDSSxXQUFBO0VBQ0EsWUFBQTtBQ0VaIiwiZmlsZSI6InNyYy9hcHAvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5AaW1wb3J0ICcuLi8uLi9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcclxuXHJcbi5mb290ZXJ7XHJcbiAgICBib3JkZXItdG9wOiAzcHggc29saWQgJGVtcGhhc2lzX2JsdWU7XHJcbiAgICBoZWlnaHQ6IDEwcmVtO1xyXG4gICAgd2lkdGg6IDEwMHZ3O1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgYm90dG9tOiAwO1xyXG4gICAgQG1lZGlhIChtaW4td2lkdGg6IDcwMHB4KSB7XHJcbiAgICAgICAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG4gICAgfVxyXG4gICAgLnBvcnRmb2xpby1pY29ucy1jb250YWluZXJ7XHJcbiAgICAgICAgd2lkdGg6IDhyZW07XHJcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA1cmVtO1xyXG4gICAgICAgIGZsb2F0OiByaWdodDtcclxuICAgICAgICBtYXJnaW4tdG9wOiAxcmVtO1xyXG4gICAgICAgIC5wb3J0Zm9saW8taWNvbnN7XHJcbiAgICAgICAgICAgIHdpZHRoOiAzcmVtO1xyXG4gICAgICAgICAgICBoZWlnaHQ6IDNyZW07ICBcclxuICAgICAgICB9ICAgXHJcbiAgICB9XHJcbn1cclxuXHJcblxyXG4gICAiLCIuZm9vdGVyIHtcbiAgYm9yZGVyLXRvcDogM3B4IHNvbGlkICM3ZmQ3ZTg7XG4gIGhlaWdodDogMTByZW07XG4gIHdpZHRoOiAxMDB2dztcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDA7XG59XG5AbWVkaWEgKG1pbi13aWR0aDogNzAwcHgpIHtcbiAgLmZvb3RlciB7XG4gICAgdmlzaWJpbGl0eTogaGlkZGVuO1xuICB9XG59XG4uZm9vdGVyIC5wb3J0Zm9saW8taWNvbnMtY29udGFpbmVyIHtcbiAgd2lkdGg6IDhyZW07XG4gIG1hcmdpbi1yaWdodDogNXJlbTtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBtYXJnaW4tdG9wOiAxcmVtO1xufVxuLmZvb3RlciAucG9ydGZvbGlvLWljb25zLWNvbnRhaW5lciAucG9ydGZvbGlvLWljb25zIHtcbiAgd2lkdGg6IDNyZW07XG4gIGhlaWdodDogM3JlbTtcbn0iXX0= */");
 
 /***/ }),
 
@@ -660,10 +660,10 @@ var charTypes;
 let LetterBoxComponent = class LetterBoxComponent {
     constructor(services) {
         this.services = services;
-        this.currChar = '';
+        this.currChar = "";
         this.typeOfChar = charTypes.Letter;
-        this.character = '';
-        this.side = '';
+        this.character = "";
+        this.side = "";
         this.characterChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.backspace = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.newUserInput = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -671,68 +671,41 @@ let LetterBoxComponent = class LetterBoxComponent {
         this.characterAdded = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.delete = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.replaceLetter = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.deletePreviousChar = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this.deleteNextChar = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     ngOnInit() {
         this.assignCharacterType();
         this.currChar = this.character;
+        if (this.side === "left") {
+            this.side = _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left;
+        }
+        else
+            this.side = _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right;
     }
     //
     handleKeyup(event) {
-        var side;
-        this.currChar = this.character;
-        var currEl = document.getElementById(side + this.index);
-        if (this.side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right) {
-            side = _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right;
-        }
-        else if (this.side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left) {
-            side = _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left;
-        }
+        let currEl = event.target;
+        let curserPosition = currEl.selectionStart;
+        event.preventDefault();
+        this.setCursorPosition(currEl, 1);
         if (event.shiftKey && (event.keyCode === 37 || event.keyCode === 39)) {
             return;
         }
         else if (event.keyCode === 37 || event.keyCode === 39) {
-            if (this.currChar.length === 2) {
-                this.character = this.currChar.charAt(0);
-                this.currChar = this.currChar.charAt(0);
-                return;
-            }
             this.moveFocus.emit({
                 keyCode: event.keyCode,
-                side,
+                side: this.side,
                 letterIdx: this.index
             });
+            // 8 is backspace
         }
         else if (event.keyCode === 8) {
-            if (this.character.length == 1) {
-                console.log(this.currChar, this.doGetCaretPosition(currEl));
-                this.replaceLetter.emit({
-                    newChar: this.character,
-                    letterIdx: this.index,
-                    side: side
-                });
-                this.currChar = this.character;
-                return;
-            }
-            this.backspace.emit({
-                letterIndex: this.index,
-                character: this.currChar
-            });
+            this.onBackSpace(curserPosition, this.side);
         }
         else if (event.keyCode === 46) {
-            if (this.character.length == 1) {
-                console.log(this.currChar, this.doGetCaretPosition(currEl));
-                this.replaceLetter.emit({
-                    newChar: this.character,
-                    letterIdx: this.index,
-                    side: side
-                });
-                this.currChar = this.character;
-                return;
-            }
-            this.delete.emit({
-                letterIndex: this.index,
-                character: this.character
-            });
+            this.setCursorPosition(0, currEl);
+            this.deleteChar(curserPosition, this.side);
         }
         else if (event.keyCode === 16 ||
             event.keyCode === 20 ||
@@ -742,51 +715,94 @@ let LetterBoxComponent = class LetterBoxComponent {
         }
         else if (this.character.length === 2) {
             this.characterAdded.emit({
-                character: this.character.charAt(1),
-                letterIndex: this.index
+                newChar: this.character.charAt(1),
+                oldChar: this.currChar,
+                idx: this.index,
             });
             this.character = this.character.charAt(0);
+            this.currChar = this.character.charAt(0);
         }
         else if (this.character.length === 1) {
             this.characterChanged.emit({
                 prevChar: this.currChar,
                 newChar: this.character,
-                letterIndex: this.index
+                letterIdx: this.index
             });
             this.currChar = this.character;
         }
     }
     assignCharacterType() {
-        var isLetter = this.services.isLetterVerification(this.character);
+        let isLetter = this.services.isLetterVerification(this.character);
         if (isLetter) {
             this.typeOfChar = charTypes.Letter;
         }
-        else if (this.character === ' ') {
+        else if (this.character === " ") {
             this.typeOfChar = charTypes.Space;
         }
         else {
             this.typeOfChar = charTypes.Punctuation;
         }
     }
-    doGetCaretPosition(oField) {
-        // Initialize
-        var iCaretPos = 0;
-        // // IE Support
-        // if (document.selection) {
-        //   // Set focus on the element
-        //   oField.focus();
-        //   // To get cursor position, get empty selection range
-        //   var oSel = document.selection.createRange();
-        //   // Move selection start to 0 position
-        //   oSel.moveStart('character', -oField.value.length);
-        //   // The caret position is selection length
-        //   iCaretPos = oSel.text.length;
-        // }
-        // Firefox support
-        //  if (oField.selectionStart || oField.selectionStart == '0')
-        //   iCaretPos = oField.selectionDirection=='backward' ? oField.selectionStart : oField.selectionEnd;
-        // Return results
-        return iCaretPos;
+    onBackSpace(curserPosition, side) {
+        if (curserPosition === 0 && this.character.length === 0) {
+            this.backspace.emit({
+                letterIdx: this.index,
+                character: this.currChar
+            });
+        }
+        else if (curserPosition === 0 &&
+            this.character.length >= 1 &&
+            this.index > 0) {
+            this.deletePreviousChar.emit({
+                letterIdx: this.index - 1,
+                side: this.side
+            });
+        }
+        else if (curserPosition !== 0) {
+            this.replaceLetter.emit({
+                newChar: this.character,
+                letterIdx: this.index,
+                side: side
+            });
+            this.currChar = this.character;
+            return;
+        }
+    }
+    deleteChar(curserPosition, side) {
+        if (curserPosition === 0 && this.character.length === 0) {
+            this.delete.emit({
+                letterIdx: this.index,
+                character: this.currChar
+            });
+        }
+        else if (curserPosition === this.character.length) {
+            this.deleteNextChar.emit({
+                letterIdx: this.index + 1,
+                side: this.side
+            });
+        }
+        else if (this.character.length > 0) {
+            this.replaceLetter.emit({
+                newChar: this.character,
+                letterIdx: this.index,
+                side: side
+            });
+            this.currChar = this.character;
+        }
+    }
+    setCursorPosition(currEl, caretPos) {
+        if (currEl.setSelectionRange) {
+            currEl.focus();
+            currEl.setSelectionRange(caretPos, caretPos);
+            // IE8 and below
+        }
+        else if (currEl.createTextRange) {
+            let range = currEl.createTextRange();
+            range.collapse(true);
+            range.moveEnd("character", caretPos);
+            range.moveStart("character", caretPos);
+            range.select();
+        }
     }
 };
 LetterBoxComponent.ctorParameters = () => [
@@ -822,9 +838,15 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
 ], LetterBoxComponent.prototype, "replaceLetter", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], LetterBoxComponent.prototype, "deletePreviousChar", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], LetterBoxComponent.prototype, "deleteNextChar", void 0);
 LetterBoxComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-letter-box',
+        selector: "app-letter-box",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./letter-box.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/letter-box/letter-box.component.html")).default,
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./letter-box.component.scss */ "./src/app/letter-box/letter-box.component.scss")).default]
     })
@@ -935,33 +957,58 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         this.pivotElement.focus();
         this.services.setCompleteText("this is a completeText");
     }
+    onDeleteNextChar($event) {
+        if ($event.side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left) {
+            this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIdx, this.lettersLeft[$event.letterIdx]);
+        }
+        else {
+            this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIdx, this.lettersRight[$event.letterIdx]);
+        }
+    }
+    onDeletePreviousChar($event) {
+        if ($event.side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left) {
+            this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIdx, this.lettersLeft[$event.letterIdx]);
+        }
+        else {
+            this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIdx, this.lettersRight[$event.letterIdx]);
+        }
+    }
     switchTextDirection(isRightToLeft) {
         this.isRightToLeft = isRightToLeft;
-        console.log("isRightToLeft", isRightToLeft);
     }
     onAddCharRight($event) {
-        let rightIdx = $event.letterIndex;
-        let leftIdx = this.lettersRight.length - 1 - rightIdx;
-        let character = $event.character;
-        this.focusOnNextPreviousElement(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, rightIdx, true, 1, this.lettersRight.length);
-        this.addNewChar(this.lettersLeft, leftIdx, this.lettersRight, rightIdx + 1, character);
+        // let rightIdx = $event.letterIdx;
+        // let leftIdx = this.lettersRight.length - 1 - rightIdx;
+        // this.focusOnNextPreviousElement(
+        //   PalindromSection.Right,
+        //   rightIdx,
+        //   true,
+        //   1,
+        //   this.lettersRight.length
+        // );
+        this.addNewChar($event.oldChar, $event.newChar, this.lettersRight, this.lettersLeft, $event.idx);
     }
     onAddCharLeft($event) {
-        let character = $event.character;
-        let leftIdx = $event.letterIndex;
-        let rightIdx = this.lettersLeft.length - 1 - leftIdx;
-        this.focusOnNextPreviousElement(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, leftIdx, true, 1, this.lettersLeft.length);
-        this.addNewChar(this.lettersRight, rightIdx, this.lettersLeft, leftIdx + 1, character);
+        // this.focusOnNextPreviousElement(
+        //   PalindromSection.Left,
+        //   leftIdx,
+        //   true,
+        //   1,
+        //   this.lettersLeft.length
+        // );
+        this.addNewChar($event.oldChar, $event.newChar, this.lettersLeft, this.lettersRight, $event.idx);
     }
     onCharacterChangedRight($event) {
-        this.replaceLetter(this.lettersLeft, this.lettersRight, $event.letterIndex, $event.prevChar, $event.newChar);
+        this.replaceLetter(this.lettersLeft, this.lettersRight, $event.letterIdx, $event.prevChar, $event.newChar);
     }
     onCharacterChangedLeft($event) {
-        this.replaceLetter(this.lettersRight, this.lettersLeft, $event.letterIndex, $event.prevChar, $event.newChar);
+        this.replaceLetter(this.lettersRight, this.lettersLeft, $event.letterIdx, $event.prevChar, $event.newChar);
     }
     onNewCharFromPivot($event) {
-        // this.pivotIsWorking=true;
-        this.addNewChar(this.lettersLeft, this.lettersLeft.length, this.lettersRight, 0, $event.newLetter);
+        this.lettersRight.unshift($event.newChar);
+        if (this.services.isLetterVerification($event.newChar)) {
+            this.lettersLeft.push($event.newChar);
+        }
     }
     moveFocus($event) {
         if ($event.keyCode === 39) {
@@ -979,7 +1026,6 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left &&
             letterIdx === this.lettersLeft.length - 1) {
-            console.log("this is the reason");
             this.pivotElement.focus();
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Pivot) {
@@ -990,7 +1036,6 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         }
     }
     moveFocusLeft(side, letterIdx) {
-        console.log("move focus", side, letterIdx);
         if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left &&
             letterIdx === 0 &&
             this.lettersRight.length > 0) {
@@ -999,7 +1044,6 @@ let PalindromEditorComponent = class PalindromEditorComponent {
                 .focus();
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right && letterIdx === 0) {
-            console.log("go to pivot", letterIdx);
             this.pivotElement.focus();
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Pivot) {
@@ -1011,29 +1055,28 @@ let PalindromEditorComponent = class PalindromEditorComponent {
             this.focusOnNextPreviousElement(side, letterIdx, false, -1);
         }
         else {
-            console.log("else");
             this.pivotElement.focus();
         }
     }
     onBackspaceLeft($event) {
-        this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIndex, $event.character);
-        if ($event.letterIndex === 0 && this.lettersLeft.length >= 1) {
+        this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIdx, $event.character);
+        if ($event.letterIdx === 0 && this.lettersLeft.length >= 1) {
             document.getElementById("left1").focus();
             return;
         }
-        this.moveFocusLeft(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, $event.letterIndex);
+        this.moveFocusLeft(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, $event.letterIdx);
     }
     onBackspaceRight($event) {
-        this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIndex, $event.character);
-        this.moveFocusLeft(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, $event.letterIndex);
+        this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIdx, $event.character);
+        this.moveFocusLeft(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, $event.letterIdx);
     }
     deleteRight($event) {
-        this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIndex, $event.character);
-        this.moveFocusRight(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, $event.letterIndex);
+        this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIdx, $event.character);
+        this.moveFocusRight(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, $event.letterIdx);
     }
     deleteLeft($event) {
-        this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIndex, $event.character);
-        this.moveFocusRight(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, $event.letterIndex);
+        this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIdx, $event.character);
+        this.moveFocusRight(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, $event.letterIdx);
     }
     deleteFromPivot() {
         if (this.lettersRight.length > 0) {
@@ -1047,18 +1090,18 @@ let PalindromEditorComponent = class PalindromEditorComponent {
             this.pivotElement.focus();
         }
     }
-    getIdxFromLetterOnOtherSide(deletedLetter, arr1, arr2, idx2) {
-        var letterIdx = this.countLetterUntilIndex(idx2, deletedLetter, arr2);
-        var idx1 = this.findIndexOnOppositeSide(arr1, deletedLetter, letterIdx);
+    getIdxFromLetterOnOtherSide(char, arr1, arr2, idx2) {
+        let letterIdx = this.countLetterUntilIndex(idx2, char, arr2);
+        let idx1 = this.findIndexOnOppositeSide(arr1, char, letterIdx);
         return idx1;
     }
     focusOnNextPreviousElement(side, id, waitForIt, backOrForward, arrLength = null) {
-        var nextLetterBox = document.getElementById(side + (id + backOrForward));
+        let nextLetterBox = document.getElementById(side + (id + backOrForward));
         if (nextLetterBox && !waitForIt) {
             nextLetterBox.focus();
         }
         else if (waitForIt) {
-            var checkExist = setInterval(function () {
+            let checkExist = setInterval(function () {
                 nextLetterBox = document.getElementById(side + (id + backOrForward));
                 if (nextLetterBox) {
                     nextLetterBox.focus();
@@ -1069,50 +1112,52 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         else
             return false;
     }
-    addNewChar(arr1, idx1, arr2, idx2, newChar) {
-        var isLetter = this.services.isLetterVerification(newChar);
+    addNewChar(oldChar, newChar, alteredArr, oppositeArr, idx2) {
+        this.replaceLetter(oppositeArr, alteredArr, idx2, oldChar, newChar);
+        var isLetter = this.services.isLetterVerification(oldChar);
+        alteredArr.splice(idx2, 0, oldChar);
         if (isLetter) {
-            arr1.splice(idx1, 0, newChar);
+            var idx1 = this.getIdxFromLetterOnOtherSide(newChar, oppositeArr, alteredArr, idx2);
+            oppositeArr.splice(idx1 + 1, 0, oldChar);
         }
-        arr2.splice(idx2, 0, newChar);
     }
     deleteChar(arr1, arr2, idx2, newChar) {
-        console.log("delete Char", arr1, arr2, idx2, newChar);
-        var isLetter = this.services.isLetterVerification(newChar);
-        if (isLetter) {
-            var idx1 = this.getIdxFromLetterOnOtherSide(newChar, arr1, arr2, idx2);
-            arr1.splice(idx1, 1);
+        let idx2Exists = this.verifyIdx(arr2, idx2);
+        if (idx2Exists) {
+            let isLetter = this.services.isLetterVerification(newChar);
+            if (isLetter) {
+                let idx1 = this.getIdxFromLetterOnOtherSide(newChar, arr1, arr2, idx2);
+                let idx1Exists = this.verifyIdx(arr1, idx1);
+                if (idx1Exists) {
+                    arr1.splice(idx1, 1);
+                }
+            }
+            arr2.splice(idx2, 1);
         }
-        else {
-        }
-        arr2.splice(idx2, 1);
     }
     onEdit($event) {
-        console.log("on edit");
-        var side = $event.side;
+        let side = $event.side;
         if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right) {
             this.replaceLetter(this.lettersLeft, this.lettersRight, $event.letterIdx, "k", $event.newChar);
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left) {
             this.replaceLetter(this.lettersRight, this.lettersLeft, $event.letterIdx, "k", $event.newChar);
         }
-        var el = document.getElementById(side + $event.letterIdx);
-        console.log(el);
+        let el = document.getElementById(side + $event.letterIdx);
         el.focus();
     }
     replaceLetter(arr1, arr2, idx2, oldChar, newChar) {
-        console.log("replaceLetter", arr1, arr2, idx2, oldChar, newChar);
-        var isLetterOld = this.services.isLetterVerification(oldChar);
-        var isLetterNew = this.services.isLetterVerification(newChar);
-        var idx1 = this.getIdxFromLetterOnOtherSide(oldChar, arr1, arr2, idx2);
+        let isLetterOld = this.services.isLetterVerification(oldChar);
+        let isLetterNew = this.services.isLetterVerification(newChar);
+        let idx1 = this.getIdxFromLetterOnOtherSide(oldChar, arr1, arr2, idx2);
         if (isLetterOld && isLetterNew) {
             arr1[idx1] = newChar;
             arr2[idx2] = newChar;
         }
         else if (isLetterNew && !isLetterOld) {
-            var lettersBeforeTargetCell = 0;
+            let lettersBeforeTargetCell = 0;
             arr2[idx2] = newChar;
-            for (var i = 0; i < idx2; i++) {
+            for (let i = 0; i < idx2; i++) {
                 if (this.services.isLetterVerification(arr2[i])) {
                     lettersBeforeTargetCell++;
                 }
@@ -1121,7 +1166,7 @@ let PalindromEditorComponent = class PalindromEditorComponent {
                 arr1.splice(arr1.length, 0, newChar);
                 return;
             }
-            for (var j = arr1.length - 1; j >= 0; j--) {
+            for (let j = arr1.length - 1; j >= 0; j--) {
                 if (this.services.isLetterVerification(arr1[j])) {
                     lettersBeforeTargetCell--;
                 }
@@ -1136,24 +1181,27 @@ let PalindromEditorComponent = class PalindromEditorComponent {
             arr1.splice(idx1, 1);
         }
     }
-    countLetterUntilIndex(idx, letter, lettersArr) {
+    countLetterUntilIndex(idx, letter, arr) {
         let letterIdx = 0;
-        for (var i = 0; i <= idx; i++) {
-            if (lettersArr[i] === letter) {
+        for (let i = 0; i <= idx; i++) {
+            if (this.services.isLetterVerification(arr[i])) {
                 letterIdx++;
             }
         }
         return letterIdx;
     }
     findIndexOnOppositeSide(lettersArr, letter, letterIdx) {
-        for (var i = lettersArr.length - 1; i >= 0; i--) {
-            if (lettersArr[i] === letter && letterIdx > 1) {
+        for (let i = lettersArr.length - 1; i >= 0; i--) {
+            if (this.services.isLetterVerification(lettersArr[i])) {
                 letterIdx--;
             }
-            else if (lettersArr[i] === letter && letterIdx === 1) {
+            if (letterIdx === 0) {
                 return i;
             }
         }
+    }
+    verifyIdx(arr, idx) {
+        return idx < arr.length;
     }
 };
 PalindromEditorComponent.ctorParameters = () => [
@@ -1163,6 +1211,7 @@ PalindromEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: "app-palindrom-editor",
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./palindrom-editor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/palindrom-editor/palindrom-editor.component.html")).default,
+        providers: [_common_services_services__WEBPACK_IMPORTED_MODULE_2__["ServicesService"]],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./palindrom-editor.component.scss */ "./src/app/palindrom-editor/palindrom-editor.component.scss")).default]
     })
 ], PalindromEditorComponent);
@@ -1254,7 +1303,7 @@ let PivotLetterComponent = class PivotLetterComponent {
         else if (this.input.length === 2) {
             var newCharacter = this.input.charAt(0);
             this.newUserInput.emit({
-                newLetter: newCharacter
+                newChar: newCharacter
             });
             this.input = this.input.slice(1);
         }

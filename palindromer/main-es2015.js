@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <app-navbar></app-navbar>\r\n    <div class=main-container>\r\n        <app-palindrom-editor></app-palindrom-editor>\r\n        <app-text></app-text>\r\n    </div>\r\n    <app-footer></app-footer>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <app-navbar></app-navbar>\r\n    <div class=main-container>\r\n        <app-palindrom-editor></app-palindrom-editor>\r\n        <app-text></app-text>\r\n        <div class=\"message-container\" *ngIf=\"displayMessage\">\r\n            <button style=\"cursor:pointer\" class=\"close\" aria-label=\"Close\" (click)=\"closeMessage()\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n              </button>\r\n            <h1>This app has limited functionality on mobile devices</h1>\r\n        </div>\r\n    </div>\r\n    <app-footer></app-footer>\r\n</div>");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\r\n<input  [ngClass]=\"{'space':typeOfChar==='space', 'punctuation':typeOfChar==='punctuation', 'letter': typeOfChar==='letter'}\" type=\"text\" [(ngModel)]=\"character\" [id]=\"side+index\" class=\"letter-box basic-char-box\" (keyup)=\"handleKeyup($event)\"   maxlength=\"2\"/> \r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<input  [ngClass]=\"{'space':typeOfChar==='space', 'punctuation':typeOfChar==='punctuation', 'letter': typeOfChar==='letter'}\" type=\"text\" [(ngModel)]=\"character\" [id]=\"side+index\" class=\"letter-box basic-char-box\" (click)=\"handleClick()\" (keyup)=\"handleKeyup($event)\"   maxlength=\"2\"/> \r\n");
 
 /***/ }),
 
@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar menu\">\n    <div class=\"menu-items\">\n        <h1 class=\"title\">Palindromes Generator</h1>\n        <div class=\"portfolio-icons-container\"  >\n\n            <a target=\"_blank\" href=\"https://www.linkedin.com/in/ariella-wills-36189a12/\"> <img class=\"portfolio-icons\"\n                    src=\"../../assets/icons/linkedin-brands.svg\" alt=\"\"></a>\n            <a target=\"_blank\" href=\"https://github.com/Ariellaw/palindromer\"><img class=\"portfolio-icons\"\n                    src=\"../../assets/icons/github-square-brands.svg\" alt=\"\"></a>\n        </div>\n    </div>\n</nav>");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar menu\">\n    <div class=\"menu-items\">\n        <h1 class=\"title\">Palindromes Generator</h1>\n        <div class=\"portfolio-icons-container\"  >\n\n            <a target=\"_blank\" href=\"https://www.linkedin.com/in/ariella-wills-36189a12/\"> <img class=\"portfolio-icons\"\n                    src=\"palindromer/../../assets/icons/linkedin-brands.svg\" alt=\"\"></a>\n            <a target=\"_blank\" href=\"https://github.com/Ariellaw/palindromer\"><img class=\"portfolio-icons\"\n                    src=\"palindromer/../../assets/icons/github-square-brands.svg\" alt=\"\"></a>\n        </div>\n    </div>\n</nav>");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div  [ngClass]=\"{'rtl':isRightToLeft}\">\r\n    <div class=\"palindrom-container\" id=\"palindrom-container\">\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\" (deleteNextChar)=\"onDeleteNextChar($event)\" (deletePreviousChar)=\"onDeletePreviousChar($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceLeft($event)\"\r\n            *ngFor=\"let currLetter of lettersLeft ; let i = index\" side=\"left\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharLeft($event)\"  (characterChanged)=\"onCharacterChangedLeft($event)\" (delete)=\"deleteLeft($event)\">\r\n        </app-letter-box>\r\n        <app-pivot-letter (moveFocus)=\"moveFocus($event)\" (backspace)=\"backspaceFromPivot()\"\r\n            (delete)=\"deleteFromPivot()\" (newUserInput)=\"onNewCharFromPivot($event)\"></app-pivot-letter>\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\"  (deleteNextChar)=\"onDeleteNextChar($event)\" (deletePreviousChar)=\"onDeletePreviousChar($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceRight($event)\"\r\n            *ngFor=\"let currLetter of lettersRight; let i = index\" side=\"right\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharRight($event)\" (characterChanged)=\"onCharacterChangedRight($event)\" (delete)=\"deleteRight($event)\">\r\n        </app-letter-box>\r\n    </div>\r\n        <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(true)\"  *ngIf=\"isRightToLeft===false\">Switch to Right to Left</button>  \r\n    <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(false)\" *ngIf=\"isRightToLeft===true\">Switch to Left to Right</button>  \r\n</div>\r\n\r\n<!-- (changeScreenDirection)=changeScreenDirection($event) [isRightToLeft]=\"isRightToLeft\" -->");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"palindrom-container\" [ngClass]=\"{'rtl':isRightToLeft}\">\r\n    <div class=\"palindrom-container\" id=\"palindrom-container\">\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\" (deleteNextChar)=\"onDeleteNextChar($event)\" (deletePreviousChar)=\"onDeletePreviousChar($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceLeft($event)\"\r\n            *ngFor=\"let currLetter of lettersLeft ; let i = index\" side=\"left\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharLeft($event)\"  (characterChanged)=\"onCharacterChangedLeft($event)\" (delete)=\"deleteLeft($event)\">\r\n        </app-letter-box>\r\n        <app-pivot-letter (moveFocus)=\"moveFocus($event)\" (backspace)=\"backspaceFromPivot()\"\r\n            (delete)=\"deleteFromPivot()\" (newUserInput)=\"onNewCharFromPivot($event)\"></app-pivot-letter>\r\n        <app-letter-box (replaceLetter)=\"onEdit($event)\"  (deleteNextChar)=\"onDeleteNextChar($event)\" (deletePreviousChar)=\"onDeletePreviousChar($event)\" (moveFocus)=\"moveFocus($event)\" (backspace)=\"onBackspaceRight($event)\"\r\n            *ngFor=\"let currLetter of lettersRight; let i = index\" side=\"right\" [character]=\"currLetter\" [index]=\"i\"\r\n            (characterAdded)=\"onAddCharRight($event)\" (characterChanged)=\"onCharacterChangedRight($event)\" (delete)=\"deleteRight($event)\">\r\n        </app-letter-box>\r\n    </div>\r\n        <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(true)\"  *ngIf=\"isRightToLeft===false\">Switch to Right to Left</button>  \r\n    <button class=\"lngDirectionbtn\" (click)=\"switchTextDirection(false)\" *ngIf=\"isRightToLeft===true\">Switch to Left to Right</button>  \r\n</div>\r\n\r\n<!-- (changeScreenDirection)=changeScreenDirection($event) [isRightToLeft]=\"isRightToLeft\" -->");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <input type=\"text\" maxlength=\"2\" [value]=\"letter\" size=1 (input)=\"onUserInput($event.target.value)\"/> -->\n<input (click)=\"expand()\" id=\"pivot-input\" [ngClass]=\"(pivotIsCollapsed)?'collapsed':'expanded'\" class=\"pivot-box basic-char-box\" type=\"text\" maxlength=\"2\" [(ngModel)]=\"input\"  (keyup)=\"onUserInput($event)\"/>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <input type=\"text\" maxlength=\"2\" [value]=\"letter\" size=1 (input)=\"onUserInput($event.target.value)\"/> -->\n<input (click)=\"expand()\" id=\"pivot-input\" [ngClass]=\"(pivotIsCollapsed)?'collapsed':'expanded'\" class=\"pivot-box basic-char-box\" type=\"text\" maxlength=\"2\" [(ngModel)]=\"input\" (click)=\"handleClick()\" (keyup)=\"onUserInput($event)\"/>\n");
 
 /***/ }),
 
@@ -382,7 +382,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".main-container {\n  width: 90%;\n  height: 80vh;\n  text-align: center;\n  top: 10rem;\n  position: absolute;\n  padding: 1rem;\n  margin-left: auto;\n  margin-right: auto;\n  display: inline-block;\n  transform: translate(-50%);\n}\n\n.hidden {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxBcmllbFxcRG9jdW1lbnRzXFxQcm9ncmFtbWluZyBwcm9qZWN0c1xccGFsaW5kcm9tZXIvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSwwQkFBQTtBQ0ZGOztBRE9BO0VBQ0Usa0JBQUE7QUNKRiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5cclxuXHJcbi5tYWluLWNvbnRhaW5lciB7XHJcbiAgd2lkdGg6IDkwJTtcclxuICBoZWlnaHQ6IDgwdmg7XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIHRvcDogMTByZW07XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHBhZGRpbmc6IDFyZW07XHJcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XHJcbiAgbWFyZ2luLXJpZ2h0OiBhdXRvO1xyXG4gIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xyXG4gIHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUpO1xyXG5cclxufVxyXG5cclxuXHJcbi5oaWRkZW57XHJcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG59XHJcblxyXG5cclxuIiwiLm1haW4tY29udGFpbmVyIHtcbiAgd2lkdGg6IDkwJTtcbiAgaGVpZ2h0OiA4MHZoO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRvcDogMTByZW07XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcGFkZGluZzogMXJlbTtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlKTtcbn1cblxuLmhpZGRlbiB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".main-container {\n  width: 90%;\n  height: 80vh;\n  text-align: center;\n  top: 10rem;\n  position: absolute;\n  padding: 1rem;\n  margin-left: auto;\n  margin-right: auto;\n  display: inline-block;\n  transform: translate(-50%);\n}\n\n.close {\n  font-size: 24px;\n  color: black;\n  background-color: #faf4e1;\n  float: right;\n}\n\n.message-container {\n  width: 20rem;\n  padding: 2rem;\n  border-radius: 3rem;\n  border: 1px solid red;\n  margin-left: auto;\n  margin-right: auto;\n  margin-top: 5rem;\n  display: none;\n}\n\n@media (max-width: 1000px) {\n  .message-container {\n    display: block;\n  }\n}\n\n.hidden {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXFVzZXJzXFxBcmllbFxcRG9jdW1lbnRzXFxQcm9ncmFtbWluZyBwcm9qZWN0c1xccGFsaW5kcm9tZXIvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXHNjc3NcXHZhcmlhYmxlcy5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdBO0VBQ0UsVUFBQTtFQUNBLFlBQUE7RUFDQSxrQkFBQTtFQUNBLFVBQUE7RUFDQSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EscUJBQUE7RUFDQSwwQkFBQTtBQ0ZGOztBRE1BO0VBQ0UsZUFBQTtFQUNFLFlBQUE7RUFDQSx5QkVwQlM7RUZxQlQsWUFBQTtBQ0hKOztBRE1BO0VBQ0UsWUFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHFCQUFBO0VBQ0EsaUJBQUE7RUFDQSxrQkFBQTtFQUNBLGdCQUFBO0VBQ0EsYUFBQTtBQ0hGOztBRElFO0VBVEY7SUFVRyxjQUFBO0VDREQ7QUFDRjs7QURLQTtFQUNFLGtCQUFBO0FDRkYiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0ICcuLi9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcclxuXHJcblxyXG4ubWFpbi1jb250YWluZXIge1xyXG4gIHdpZHRoOiA5MCU7XHJcbiAgaGVpZ2h0OiA4MHZoO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICB0b3A6IDEwcmVtO1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICBwYWRkaW5nOiAxcmVtO1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogYXV0bztcclxuICBkaXNwbGF5OmlubGluZS1ibG9jaztcclxuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlKTtcclxuXHJcbn1cclxuXHJcbi5jbG9zZXtcclxuICBmb250LXNpemU6IDI0cHg7XHJcbiAgICBjb2xvcjogYmxhY2s7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkbWFpbl9jb2xvcjtcclxuICAgIGZsb2F0OiByaWdodDtcclxufVxyXG5cclxuLm1lc3NhZ2UtY29udGFpbmVye1xyXG4gIHdpZHRoOiAyMHJlbTtcclxuICBwYWRkaW5nOiAycmVtO1xyXG4gIGJvcmRlci1yYWRpdXM6IDNyZW07XHJcbiAgYm9yZGVyOiAxcHggc29saWQgcmVkO1xyXG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xyXG4gIG1hcmdpbi1yaWdodDogYXV0bztcclxuICBtYXJnaW4tdG9wOjVyZW07XHJcbiAgZGlzcGxheTogbm9uZTtcclxuICBAbWVkaWEgKG1heC13aWR0aDoxMDAwcHgpIHtcclxuICAgZGlzcGxheTogYmxvY2s7IFxyXG4gIH1cclxuXHJcbn1cclxuXHJcbi5oaWRkZW57XHJcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xyXG59XHJcblxyXG5cclxuIiwiLm1haW4tY29udGFpbmVyIHtcbiAgd2lkdGg6IDkwJTtcbiAgaGVpZ2h0OiA4MHZoO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHRvcDogMTByZW07XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcGFkZGluZzogMXJlbTtcbiAgbWFyZ2luLWxlZnQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogYXV0bztcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB0cmFuc2Zvcm06IHRyYW5zbGF0ZSgtNTAlKTtcbn1cblxuLmNsb3NlIHtcbiAgZm9udC1zaXplOiAyNHB4O1xuICBjb2xvcjogYmxhY2s7XG4gIGJhY2tncm91bmQtY29sb3I6ICNmYWY0ZTE7XG4gIGZsb2F0OiByaWdodDtcbn1cblxuLm1lc3NhZ2UtY29udGFpbmVyIHtcbiAgd2lkdGg6IDIwcmVtO1xuICBwYWRkaW5nOiAycmVtO1xuICBib3JkZXItcmFkaXVzOiAzcmVtO1xuICBib3JkZXI6IDFweCBzb2xpZCByZWQ7XG4gIG1hcmdpbi1sZWZ0OiBhdXRvO1xuICBtYXJnaW4tcmlnaHQ6IGF1dG87XG4gIG1hcmdpbi10b3A6IDVyZW07XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5AbWVkaWEgKG1heC13aWR0aDogMTAwMHB4KSB7XG4gIC5tZXNzYWdlLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gIH1cbn1cblxuLmhpZGRlbiB7XG4gIHZpc2liaWxpdHk6IGhpZGRlbjtcbn0iLCIkbWFpbl9jb2xvcjogI2ZhZjRlMTtcclxuJHNlY29uZGFyeV9tYWluX2NvbG9yOiNlNGNiN2Q7XHJcbiRlbXBoYXNpc19ibHVlOiAjN2ZkN2U4O1xyXG4kZW1waGFzaXNfcHVycGxlOiAjYTU3ZmU4O1xyXG4kYmxhY2s6IGJsYWNrO1xyXG4kZW1waGFzaXNfZ3JlZW46ICNiZGUzNjY7XHJcbiRmb2N1c19jb2xvcjogI0ZGRENFMDtcclxuJHRpdGxlX2NvbG9yOiAjNjk0ZjEwO1xyXG4kZW1waGFzaXNfcmVkOiByZWQiXX0= */");
 
 /***/ }),
 
@@ -401,10 +401,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    // title = 'palindromer';
+    constructor() {
+        this.displayMessage = true;
+    }
     ngOnInit() {
     }
     ngOnChanges(event) {
+    }
+    closeMessage() {
+        this.displayMessage = false;
     }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
@@ -546,6 +551,20 @@ let ServicesService = class ServicesService {
         return (character.match(this.latinLettersRegex) ||
             character.match(this.hebrewLettersRegex));
     }
+    setCursorPosition(currEl, caretPos) {
+        if (currEl.setSelectionRange) {
+            currEl.focus();
+            currEl.setSelectionRange(caretPos, caretPos);
+            // IE8 and below
+        }
+        else if (currEl.createTextRange) {
+            let range = currEl.createTextRange();
+            range.collapse(true);
+            range.moveEnd("character", caretPos);
+            range.moveStart("character", caretPos);
+            range.select();
+        }
+    }
     setCompleteText(text) {
         this.completeText = text;
     }
@@ -630,7 +649,7 @@ FooterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".letter-box {\n  display: inline-block;\n  position: relative;\n  border: none;\n}\n.letter-box:focus {\n  border: 3px solid #FFDCE0;\n  outline: none;\n  text-shadow: 0 0 0 red;\n  border-radius: 1rem;\n}\n.punctuation {\n  margin-right: 2px;\n  margin-left: 0px;\n  border-bottom: 2px solid #7fd7e8;\n}\n.space {\n  margin-right: 2px;\n  margin-left: 2px;\n  display: block;\n  border-bottom: 2px solid #7fd7e8;\n}\n.letter {\n  margin-right: 2px;\n  margin-left: 2px;\n  border: 2px solid #7fd7e8;\n  border-radius: 1rem;\n}\n.hidden {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGV0dGVyLWJveC9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXGFwcFxcbGV0dGVyLWJveFxcbGV0dGVyLWJveC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbGV0dGVyLWJveC9sZXR0ZXItYm94LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0kscUJBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7QUNESjtBREVJO0VBQ0kseUJBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtBQ0FSO0FESUE7RUFDSSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0NBQUE7QUNESjtBRE1BO0VBQ0ksaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxnQ0FBQTtBQ0hKO0FEU0E7RUFFSSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EseUJBQUE7RUFDQSxtQkFBQTtBQ1BKO0FEWUE7RUFDSSxrQkFBQTtBQ1RKIiwiZmlsZSI6InNyYy9hcHAvbGV0dGVyLWJveC9sZXR0ZXItYm94LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vLi4vc2Nzcy92YXJpYWJsZXMuc2Nzcyc7XHJcblxyXG4ubGV0dGVyLWJveHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsgIFxyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgJjpmb2N1cyB7XHJcbiAgICAgICAgYm9yZGVyOiAzcHggc29saWQgJGZvY3VzX2NvbG9yO1xyXG4gICAgICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICAgICAgdGV4dC1zaGFkb3c6IDAgMCAwIHJlZDtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiAxcmVtO1xyXG4gICAgICB9XHJcbn1cclxuXHJcbi5wdW5jdHVhdGlvbntcclxuICAgIG1hcmdpbi1yaWdodDogMnB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6MHB4O1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMnB4IHNvbGlkICRlbXBoYXNpc19ibHVlO1xyXG5cclxufVxyXG5cclxuXHJcbi5zcGFjZXtcclxuICAgIG1hcmdpbi1yaWdodDogMnB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6MnB4O1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICBib3JkZXItYm90dG9tOjJweCBzb2xpZCAkZW1waGFzaXNfYmx1ZTtcclxuXHJcbiAgICAvLyBib3JkZXItYm90dG9tOiAxcHggc29saWQgaG90cGluaztcclxufSAgICBcclxuXHJcblxyXG4ubGV0dGVye1xyXG4gICAgLy8gYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGRhcmtibHVlO1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAycHg7XHJcbiAgICBtYXJnaW4tbGVmdDoycHg7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAkZW1waGFzaXNfYmx1ZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDFyZW07XHJcblxyXG5cclxufVxyXG5cclxuLmhpZGRlbntcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjtcclxufSIsIi5sZXR0ZXItYm94IHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJvcmRlcjogbm9uZTtcbn1cbi5sZXR0ZXItYm94OmZvY3VzIHtcbiAgYm9yZGVyOiAzcHggc29saWQgI0ZGRENFMDtcbiAgb3V0bGluZTogbm9uZTtcbiAgdGV4dC1zaGFkb3c6IDAgMCAwIHJlZDtcbiAgYm9yZGVyLXJhZGl1czogMXJlbTtcbn1cblxuLnB1bmN0dWF0aW9uIHtcbiAgbWFyZ2luLXJpZ2h0OiAycHg7XG4gIG1hcmdpbi1sZWZ0OiAwcHg7XG4gIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAjN2ZkN2U4O1xufVxuXG4uc3BhY2Uge1xuICBtYXJnaW4tcmlnaHQ6IDJweDtcbiAgbWFyZ2luLWxlZnQ6IDJweDtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAjN2ZkN2U4O1xufVxuXG4ubGV0dGVyIHtcbiAgbWFyZ2luLXJpZ2h0OiAycHg7XG4gIG1hcmdpbi1sZWZ0OiAycHg7XG4gIGJvcmRlcjogMnB4IHNvbGlkICM3ZmQ3ZTg7XG4gIGJvcmRlci1yYWRpdXM6IDFyZW07XG59XG5cbi5oaWRkZW4ge1xuICB2aXNpYmlsaXR5OiBoaWRkZW47XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".letter-box {\n  display: inline-block;\n  position: relative;\n  border: none;\n}\n.letter-box:focus {\n  border: 3px solid #FFDCE0;\n  outline: none;\n  text-shadow: 0 0 0 red;\n  border-radius: 1rem;\n}\n.punctuation {\n  margin-right: 2px;\n  margin-left: 0px;\n  border-bottom: 2px solid #7fd7e8;\n}\n.space {\n  margin-right: 2px;\n  margin-left: 2px;\n  display: block;\n  border-bottom: 2px solid #7fd7e8;\n}\n.letter {\n  margin-right: 2px;\n  margin-left: 2px;\n  border: 2px solid #7fd7e8;\n  border-radius: 1rem;\n}\n.hidden {\n  visibility: hidden;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGV0dGVyLWJveC9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXGFwcFxcbGV0dGVyLWJveFxcbGV0dGVyLWJveC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvbGV0dGVyLWJveC9sZXR0ZXItYm94LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVBO0VBQ0kscUJBQUE7RUFDQSxrQkFBQTtFQUNBLFlBQUE7QUNESjtBREVJO0VBQ0kseUJBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxtQkFBQTtBQ0FSO0FESUE7RUFDSSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZ0NBQUE7QUNESjtBRE1BO0VBQ0ksaUJBQUE7RUFDQSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxnQ0FBQTtBQ0hKO0FEU0E7RUFFSSxpQkFBQTtFQUNBLGdCQUFBO0VBQ0EseUJBQUE7RUFDQSxtQkFBQTtBQ1BKO0FEWUE7RUFDSSxrQkFBQTtBQ1RKIiwiZmlsZSI6InNyYy9hcHAvbGV0dGVyLWJveC9sZXR0ZXItYm94LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCAnLi4vLi4vc2Nzcy92YXJpYWJsZXMuc2Nzcyc7XHJcblxyXG4ubGV0dGVyLWJveHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jazsgIFxyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgYm9yZGVyOiBub25lO1xyXG4gICAgJjpmb2N1cyB7XHJcbiAgICAgICAgYm9yZGVyOiAzcHggc29saWQgJGZvY3VzX2NvbG9yO1xyXG4gICAgICAgIG91dGxpbmU6IG5vbmU7XHJcbiAgICAgICAgdGV4dC1zaGFkb3c6IDAgMCAwICRlbXBoYXNpc19yZWQ7XHJcbiAgICAgICAgYm9yZGVyLXJhZGl1czogMXJlbTtcclxuICAgICAgfVxyXG59XHJcblxyXG4ucHVuY3R1YXRpb257XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDJweDtcclxuICAgIG1hcmdpbi1sZWZ0OjBweDtcclxuICAgIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCAkZW1waGFzaXNfYmx1ZTtcclxuXHJcbn1cclxuXHJcblxyXG4uc3BhY2V7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDJweDtcclxuICAgIG1hcmdpbi1sZWZ0OjJweDtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYm9yZGVyLWJvdHRvbToycHggc29saWQgJGVtcGhhc2lzX2JsdWU7XHJcblxyXG4gICAgLy8gYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIGhvdHBpbms7XHJcbn0gICAgXHJcblxyXG5cclxuLmxldHRlcntcclxuICAgIC8vIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCBkYXJrYmx1ZTtcclxuICAgIG1hcmdpbi1yaWdodDogMnB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6MnB4O1xyXG4gICAgYm9yZGVyOiAycHggc29saWQgJGVtcGhhc2lzX2JsdWU7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxcmVtO1xyXG5cclxuXHJcbn1cclxuXHJcbi5oaWRkZW57XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcbn0iLCIubGV0dGVyLWJveCB7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBib3JkZXI6IG5vbmU7XG59XG4ubGV0dGVyLWJveDpmb2N1cyB7XG4gIGJvcmRlcjogM3B4IHNvbGlkICNGRkRDRTA7XG4gIG91dGxpbmU6IG5vbmU7XG4gIHRleHQtc2hhZG93OiAwIDAgMCByZWQ7XG4gIGJvcmRlci1yYWRpdXM6IDFyZW07XG59XG5cbi5wdW5jdHVhdGlvbiB7XG4gIG1hcmdpbi1yaWdodDogMnB4O1xuICBtYXJnaW4tbGVmdDogMHB4O1xuICBib3JkZXItYm90dG9tOiAycHggc29saWQgIzdmZDdlODtcbn1cblxuLnNwYWNlIHtcbiAgbWFyZ2luLXJpZ2h0OiAycHg7XG4gIG1hcmdpbi1sZWZ0OiAycHg7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICBib3JkZXItYm90dG9tOiAycHggc29saWQgIzdmZDdlODtcbn1cblxuLmxldHRlciB7XG4gIG1hcmdpbi1yaWdodDogMnB4O1xuICBtYXJnaW4tbGVmdDogMnB4O1xuICBib3JkZXI6IDJweCBzb2xpZCAjN2ZkN2U4O1xuICBib3JkZXItcmFkaXVzOiAxcmVtO1xufVxuXG4uaGlkZGVuIHtcbiAgdmlzaWJpbGl0eTogaGlkZGVuO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -682,13 +701,16 @@ let LetterBoxComponent = class LetterBoxComponent {
         }
         else
             this.side = _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right;
+        // this.currEl = document.getElementById(this.side+this.index);
     }
-    //
+    handleClick() {
+        var currEl = event.target;
+        this.services.setCursorPosition(currEl, 1);
+    }
     handleKeyup(event) {
-        let currEl = event.target;
-        let curserPosition = currEl.selectionStart;
         event.preventDefault();
-        this.setCursorPosition(currEl, 1);
+        var currEl = event.target;
+        this.services.setCursorPosition(currEl, 1);
         if (event.shiftKey && (event.keyCode === 37 || event.keyCode === 39)) {
             return;
         }
@@ -700,12 +722,11 @@ let LetterBoxComponent = class LetterBoxComponent {
             });
             // 8 is backspace
         }
-        else if (event.keyCode === 8) {
-            this.onBackSpace(curserPosition, this.side);
+        else if (event.keyCode === 8 || event.key === "Backspace") {
+            this.onBackSpace(this.side);
         }
-        else if (event.keyCode === 46) {
-            this.setCursorPosition(0, currEl);
-            this.deleteChar(curserPosition, this.side);
+        else if (event.keyCode === 46 || event.key === "Delete") {
+            this.deleteChar(this.side);
         }
         else if (event.keyCode === 16 ||
             event.keyCode === 20 ||
@@ -717,7 +738,7 @@ let LetterBoxComponent = class LetterBoxComponent {
             this.characterAdded.emit({
                 newChar: this.character.charAt(1),
                 oldChar: this.currChar,
-                idx: this.index,
+                idx: this.index
             });
             this.character = this.character.charAt(0);
             this.currChar = this.character.charAt(0);
@@ -743,22 +764,17 @@ let LetterBoxComponent = class LetterBoxComponent {
             this.typeOfChar = charTypes.Punctuation;
         }
     }
-    onBackSpace(curserPosition, side) {
-        if (curserPosition === 0 && this.character.length === 0) {
+    onBackSpace(side) {
+        // event.preventDefault();
+        console.log("event onBackSpace", event);
+        if (this.currChar.length <= 1) {
             this.backspace.emit({
                 letterIdx: this.index,
                 character: this.currChar
             });
+            return;
         }
-        else if (curserPosition === 0 &&
-            this.character.length >= 1 &&
-            this.index > 0) {
-            this.deletePreviousChar.emit({
-                letterIdx: this.index - 1,
-                side: this.side
-            });
-        }
-        else if (curserPosition !== 0) {
+        else if (this.currChar.length > 1) {
             this.replaceLetter.emit({
                 newChar: this.character,
                 letterIdx: this.index,
@@ -768,40 +784,20 @@ let LetterBoxComponent = class LetterBoxComponent {
             return;
         }
     }
-    deleteChar(curserPosition, side) {
-        if (curserPosition === 0 && this.character.length === 0) {
+    deleteChar(side) {
+        if (this.character.length <= 1) {
             this.delete.emit({
                 letterIdx: this.index,
                 character: this.currChar
             });
         }
-        else if (curserPosition === this.character.length) {
-            this.deleteNextChar.emit({
-                letterIdx: this.index + 1,
-                side: this.side
-            });
-        }
-        else if (this.character.length > 0) {
+        else if (this.character.length > 1) {
             this.replaceLetter.emit({
                 newChar: this.character,
                 letterIdx: this.index,
                 side: side
             });
             this.currChar = this.character;
-        }
-    }
-    setCursorPosition(currEl, caretPos) {
-        if (currEl.setSelectionRange) {
-            currEl.focus();
-            currEl.setSelectionRange(caretPos, caretPos);
-            // IE8 and below
-        }
-        else if (currEl.createTextRange) {
-            let range = currEl.createTextRange();
-            range.collapse(true);
-            range.moveEnd("character", caretPos);
-            range.moveStart("character", caretPos);
-            range.select();
         }
     }
 };
@@ -948,14 +944,16 @@ __webpack_require__.r(__webpack_exports__);
 let PalindromEditorComponent = class PalindromEditorComponent {
     constructor(services) {
         this.services = services;
-        this.lettersLeft = ["t", "a", "c"];
-        this.lettersRight = ["c", "a", "t"];
+        this.lettersLeft = ['t', 'a', 'c'];
+        this.lettersRight = ['c', 'a', 't'];
         this.isRightToLeft = false;
+        this.doneTypingInterval = 1000;
     }
     ngOnInit() {
         this.pivotElement = document.getElementById(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Pivot);
         this.pivotElement.focus();
-        this.services.setCompleteText("this is a completeText");
+        this.services.setCompleteText('this is a completeText');
+        this.palindromContainerEl = document.getElementById('palindrom-container');
     }
     onDeleteNextChar($event) {
         if ($event.side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left) {
@@ -977,25 +975,17 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         this.isRightToLeft = isRightToLeft;
     }
     onAddCharRight($event) {
-        // let rightIdx = $event.letterIdx;
-        // let leftIdx = this.lettersRight.length - 1 - rightIdx;
-        // this.focusOnNextPreviousElement(
+        // setTimeout(() => this.focusOnNextPreviousElement(
         //   PalindromSection.Right,
-        //   rightIdx,
+        //   $event.idx,
         //   true,
         //   1,
-        //   this.lettersRight.length
-        // );
+        // ), 1000);
         this.addNewChar($event.oldChar, $event.newChar, this.lettersRight, this.lettersLeft, $event.idx);
+        this.focusOnNextPreviousElement(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, $event.idx, true, 1);
     }
     onAddCharLeft($event) {
-        // this.focusOnNextPreviousElement(
-        //   PalindromSection.Left,
-        //   leftIdx,
-        //   true,
-        //   1,
-        //   this.lettersLeft.length
-        // );
+        this.focusOnNextPreviousElement(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, $event.idx, true, 1, this.lettersLeft.length);
         this.addNewChar($event.oldChar, $event.newChar, this.lettersLeft, this.lettersRight, $event.idx);
     }
     onCharacterChangedRight($event) {
@@ -1012,27 +1002,42 @@ let PalindromEditorComponent = class PalindromEditorComponent {
     }
     moveFocus($event) {
         if ($event.keyCode === 39) {
-            this.moveFocusRight($event.side, $event.letterIdx);
+            this.moveFocusRight($event.side, $event.letterIdx, 1);
         }
         else {
             this.moveFocusLeft($event.side, $event.letterIdx);
         }
     }
     /*HELPERFUNCTIONS */
-    moveFocusRight(side, letterIdx) {
-        if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right &&
-            letterIdx === this.lettersRight.length - 1) {
-            document.getElementById("left0").focus();
+    moveFocusRight(side, letterIdx, isArrow = 0) {
+        if (this.lettersRight.length === 0 && side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right) {
+            this.pivotElement.focus();
+        }
+        else if (this.lettersRight.length === 1 && side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right) {
+            document.getElementById('right1').focus();
+        }
+        else if (this.lettersLeft.length === 1 &&
+            side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left) {
+            document.getElementById('left1').focus();
+        }
+        else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right &&
+            (letterIdx === this.lettersRight.length || letterIdx === this.lettersRight.length - 1 && isArrow)) {
+            this.focusOnNextPreviousElement(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, 0, true, 0);
+            // var el =  document.getElementById('left1');
+            //  el.focus();
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left &&
             letterIdx === this.lettersLeft.length - 1) {
             this.pivotElement.focus();
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Pivot) {
-            document.getElementById("right0").focus();
+            document.getElementById('right0').focus();
+        }
+        else if (this.lettersLeft.length === 0) {
+            this.pivotElement.focus();
         }
         else {
-            this.focusOnNextPreviousElement(side, letterIdx, false, 1);
+            this.focusOnNextPreviousElement(side, letterIdx, true, isArrow);
         }
     }
     moveFocusLeft(side, letterIdx) {
@@ -1061,10 +1066,11 @@ let PalindromEditorComponent = class PalindromEditorComponent {
     onBackspaceLeft($event) {
         this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIdx, $event.character);
         if ($event.letterIdx === 0 && this.lettersLeft.length >= 1) {
-            document.getElementById("left1").focus();
+            document.getElementById('left1').focus();
             return;
         }
         this.moveFocusLeft(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left, $event.letterIdx);
+        console.log("last print out", this.lettersRight, this.lettersLeft);
     }
     onBackspaceRight($event) {
         this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIdx, $event.character);
@@ -1072,7 +1078,7 @@ let PalindromEditorComponent = class PalindromEditorComponent {
     }
     deleteRight($event) {
         this.deleteChar(this.lettersLeft, this.lettersRight, $event.letterIdx, $event.character);
-        this.moveFocusRight(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, $event.letterIdx);
+        this.moveFocusRight(_common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right, $event.letterIdx, 0);
     }
     deleteLeft($event) {
         this.deleteChar(this.lettersRight, this.lettersLeft, $event.letterIdx, $event.character);
@@ -1091,18 +1097,21 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         }
     }
     getIdxFromLetterOnOtherSide(char, arr1, arr2, idx2) {
+        console.log("getIdxFromLetterOnOtherSide char, arr1, arr2, idx2", char, arr1, arr2, idx2);
         let letterIdx = this.countLetterUntilIndex(idx2, char, arr2);
+        console.log("letterIdx of deleted letter", letterIdx);
         let idx1 = this.findIndexOnOppositeSide(arr1, char, letterIdx);
+        console.log("ipposide id", idx1);
         return idx1;
     }
-    focusOnNextPreviousElement(side, id, waitForIt, backOrForward, arrLength = null) {
-        let nextLetterBox = document.getElementById(side + (id + backOrForward));
+    focusOnNextPreviousElement(side, idx, waitForIt, backOrForward, arrLength = null) {
+        let nextLetterBox = document.getElementById(side + (idx + backOrForward));
         if (nextLetterBox && !waitForIt) {
             nextLetterBox.focus();
         }
         else if (waitForIt) {
             let checkExist = setInterval(function () {
-                nextLetterBox = document.getElementById(side + (id + backOrForward));
+                nextLetterBox = document.getElementById(side + (idx + backOrForward));
                 if (nextLetterBox) {
                     nextLetterBox.focus();
                     clearInterval(checkExist);
@@ -1133,15 +1142,16 @@ let PalindromEditorComponent = class PalindromEditorComponent {
                 }
             }
             arr2.splice(idx2, 1);
+            console.log("arr1", arr1, "arr2", arr2);
         }
     }
     onEdit($event) {
         let side = $event.side;
         if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Right) {
-            this.replaceLetter(this.lettersLeft, this.lettersRight, $event.letterIdx, "k", $event.newChar);
+            this.replaceLetter(this.lettersLeft, this.lettersRight, $event.letterIdx, 'k', $event.newChar);
         }
         else if (side === _common_services_services__WEBPACK_IMPORTED_MODULE_2__["PalindromSection"].Left) {
-            this.replaceLetter(this.lettersRight, this.lettersLeft, $event.letterIdx, "k", $event.newChar);
+            this.replaceLetter(this.lettersRight, this.lettersLeft, $event.letterIdx, 'k', $event.newChar);
         }
         let el = document.getElementById(side + $event.letterIdx);
         el.focus();
@@ -1182,6 +1192,7 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         }
     }
     countLetterUntilIndex(idx, letter, arr) {
+        console.log("countLetterUntilIndex", "idx", idx, arr);
         let letterIdx = 0;
         for (let i = 0; i <= idx; i++) {
             if (this.services.isLetterVerification(arr[i])) {
@@ -1191,9 +1202,11 @@ let PalindromEditorComponent = class PalindromEditorComponent {
         return letterIdx;
     }
     findIndexOnOppositeSide(lettersArr, letter, letterIdx) {
+        console.log("findIndexOnOppositeSide", lettersArr, letterIdx);
         for (let i = lettersArr.length - 1; i >= 0; i--) {
             if (this.services.isLetterVerification(lettersArr[i])) {
                 letterIdx--;
+                console.log("yay findIndexOnOppositeSide");
             }
             if (letterIdx === 0) {
                 return i;
@@ -1209,7 +1222,7 @@ PalindromEditorComponent.ctorParameters = () => [
 ];
 PalindromEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: "app-palindrom-editor",
+        selector: 'app-palindrom-editor',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./palindrom-editor.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/palindrom-editor/palindrom-editor.component.html")).default,
         providers: [_common_services_services__WEBPACK_IMPORTED_MODULE_2__["ServicesService"]],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./palindrom-editor.component.scss */ "./src/app/palindrom-editor/palindrom-editor.component.scss")).default]
@@ -1229,7 +1242,7 @@ PalindromEditorComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".pivot-box {\n  border-radius: 1rem;\n  border: 3px solid #a57fe8;\n  margin-right: 2px;\n  margin-left: 2px;\n  background-color: #e4cb7d;\n}\n.pivot-box:focus {\n  border: 3px solid #FFDCE0;\n  outline: none;\n  text-shadow: 0 0 0 red;\n}\n.expanded {\n  cursor: text;\n}\n.collapsed {\n  width: 0px;\n  height: 60px;\n  padding: 0px;\n  border-color: #7fd7e8;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGl2b3QtbGV0dGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcYXBwXFxwaXZvdC1sZXR0ZXJcXHBpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGl2b3QtbGV0dGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcc2Nzc1xcdmFyaWFibGVzLnNjc3MiLCJzcmMvYXBwL3Bpdm90LWxldHRlci9waXZvdC1sZXR0ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFDRSxtQkFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLHlCQ1BvQjtBQ0t0QjtBRklFO0VBQ0UseUJBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7QUVGSjtBRk1BO0VBQ0UsWUFBQTtBRUhGO0FGTUE7RUFDRSxVQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxxQkN2QmM7RUR3QmQsZUFBQTtBRUhGIiwiZmlsZSI6InNyYy9hcHAvcGl2b3QtbGV0dGVyL3Bpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5cclxuXHJcbi5waXZvdC1ib3gge1xyXG4gIGJvcmRlci1yYWRpdXM6IDFyZW07XHJcbiAgYm9yZGVyOiAzcHggc29saWQgJGVtcGhhc2lzX3B1cnBsZTtcclxuICBtYXJnaW4tcmlnaHQ6IDJweDtcclxuICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICRzZWNvbmRhcnlfbWFpbl9jb2xvcjtcclxuXHJcbiAgJjpmb2N1cyB7XHJcbiAgICBib3JkZXI6IDNweCBzb2xpZCAkZm9jdXNfY29sb3I7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG4gICAgdGV4dC1zaGFkb3c6IDAgMCAwIHJlZDtcclxuICB9XHJcbn1cclxuXHJcbi5leHBhbmRlZCB7XHJcbiAgY3Vyc29yOiB0ZXh0O1xyXG59XHJcblxyXG4uY29sbGFwc2VkIHtcclxuICB3aWR0aDogMHB4O1xyXG4gIGhlaWdodDogNjBweDtcclxuICBwYWRkaW5nOiAwcHg7XHJcbiAgYm9yZGVyLWNvbG9yOiAkZW1waGFzaXNfYmx1ZTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuIiwiJG1haW5fY29sb3I6ICNmYWY0ZTE7XHJcbiRzZWNvbmRhcnlfbWFpbl9jb2xvcjojZTRjYjdkO1xyXG4kZW1waGFzaXNfYmx1ZTogIzdmZDdlODtcclxuJGVtcGhhc2lzX3B1cnBsZTogI2E1N2ZlODtcclxuJGJsYWNrOiBibGFjaztcclxuJGVtcGhhc2lzX2dyZWVuOiAjYmRlMzY2O1xyXG4kZm9jdXNfY29sb3I6ICNGRkRDRTA7XHJcbiR0aXRsZV9jb2xvcjogIzY5NGYxMDtcclxuIiwiLnBpdm90LWJveCB7XG4gIGJvcmRlci1yYWRpdXM6IDFyZW07XG4gIGJvcmRlcjogM3B4IHNvbGlkICNhNTdmZTg7XG4gIG1hcmdpbi1yaWdodDogMnB4O1xuICBtYXJnaW4tbGVmdDogMnB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZTRjYjdkO1xufVxuLnBpdm90LWJveDpmb2N1cyB7XG4gIGJvcmRlcjogM3B4IHNvbGlkICNGRkRDRTA7XG4gIG91dGxpbmU6IG5vbmU7XG4gIHRleHQtc2hhZG93OiAwIDAgMCByZWQ7XG59XG5cbi5leHBhbmRlZCB7XG4gIGN1cnNvcjogdGV4dDtcbn1cblxuLmNvbGxhcHNlZCB7XG4gIHdpZHRoOiAwcHg7XG4gIGhlaWdodDogNjBweDtcbiAgcGFkZGluZzogMHB4O1xuICBib3JkZXItY29sb3I6ICM3ZmQ3ZTg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".pivot-box {\n  border-radius: 1rem;\n  border: 3px solid #a57fe8;\n  margin-right: 2px;\n  margin-left: 2px;\n  background-color: #e4cb7d;\n}\n.pivot-box:focus {\n  border: 3px solid yellow;\n  outline: none;\n  text-shadow: 0 0 0 red;\n}\n.expanded {\n  cursor: text;\n}\n.collapsed {\n  width: 0px;\n  height: 60px;\n  padding: 0px;\n  border-color: #7fd7e8;\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGl2b3QtbGV0dGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcYXBwXFxwaXZvdC1sZXR0ZXJcXHBpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvcGl2b3QtbGV0dGVyL0M6XFxVc2Vyc1xcQXJpZWxcXERvY3VtZW50c1xcUHJvZ3JhbW1pbmcgcHJvamVjdHNcXHBhbGluZHJvbWVyL3NyY1xcc2Nzc1xcdmFyaWFibGVzLnNjc3MiLCJzcmMvYXBwL3Bpdm90LWxldHRlci9waXZvdC1sZXR0ZXIuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0E7RUFDRSxtQkFBQTtFQUNBLHlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxnQkFBQTtFQUNBLHlCQ1BvQjtBQ0t0QjtBRklFO0VBQ0Usd0JBQUE7RUFDQSxhQUFBO0VBQ0Esc0JBQUE7QUVGSjtBRk1BO0VBQ0UsWUFBQTtBRUhGO0FGTUE7RUFDRSxVQUFBO0VBQ0EsWUFBQTtFQUNBLFlBQUE7RUFDQSxxQkN2QmM7RUR3QmQsZUFBQTtBRUhGIiwiZmlsZSI6InNyYy9hcHAvcGl2b3QtbGV0dGVyL3Bpdm90LWxldHRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5cclxuXHJcbi5waXZvdC1ib3gge1xyXG4gIGJvcmRlci1yYWRpdXM6IDFyZW07XHJcbiAgYm9yZGVyOiAzcHggc29saWQgJGVtcGhhc2lzX3B1cnBsZTtcclxuICBtYXJnaW4tcmlnaHQ6IDJweDtcclxuICBtYXJnaW4tbGVmdDogMnB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICRzZWNvbmRhcnlfbWFpbl9jb2xvcjtcclxuXHJcbiAgJjpmb2N1cyB7XHJcbiAgICBib3JkZXI6IDNweCBzb2xpZCB5ZWxsb3c7XHJcbiAgICBvdXRsaW5lOiBub25lO1xyXG4gICAgdGV4dC1zaGFkb3c6IDAgMCAwICRlbXBoYXNpc19yZWQ7XHJcbiAgfVxyXG59XHJcblxyXG4uZXhwYW5kZWQge1xyXG4gIGN1cnNvcjogdGV4dDtcclxufVxyXG5cclxuLmNvbGxhcHNlZCB7XHJcbiAgd2lkdGg6IDBweDtcclxuICBoZWlnaHQ6IDYwcHg7XHJcbiAgcGFkZGluZzogMHB4O1xyXG4gIGJvcmRlci1jb2xvcjogJGVtcGhhc2lzX2JsdWU7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbiIsIiRtYWluX2NvbG9yOiAjZmFmNGUxO1xyXG4kc2Vjb25kYXJ5X21haW5fY29sb3I6I2U0Y2I3ZDtcclxuJGVtcGhhc2lzX2JsdWU6ICM3ZmQ3ZTg7XHJcbiRlbXBoYXNpc19wdXJwbGU6ICNhNTdmZTg7XHJcbiRibGFjazogYmxhY2s7XHJcbiRlbXBoYXNpc19ncmVlbjogI2JkZTM2NjtcclxuJGZvY3VzX2NvbG9yOiAjRkZEQ0UwO1xyXG4kdGl0bGVfY29sb3I6ICM2OTRmMTA7XHJcbiRlbXBoYXNpc19yZWQ6IHJlZCIsIi5waXZvdC1ib3gge1xuICBib3JkZXItcmFkaXVzOiAxcmVtO1xuICBib3JkZXI6IDNweCBzb2xpZCAjYTU3ZmU4O1xuICBtYXJnaW4tcmlnaHQ6IDJweDtcbiAgbWFyZ2luLWxlZnQ6IDJweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogI2U0Y2I3ZDtcbn1cbi5waXZvdC1ib3g6Zm9jdXMge1xuICBib3JkZXI6IDNweCBzb2xpZCB5ZWxsb3c7XG4gIG91dGxpbmU6IG5vbmU7XG4gIHRleHQtc2hhZG93OiAwIDAgMCByZWQ7XG59XG5cbi5leHBhbmRlZCB7XG4gIGN1cnNvcjogdGV4dDtcbn1cblxuLmNvbGxhcHNlZCB7XG4gIHdpZHRoOiAwcHg7XG4gIGhlaWdodDogNjBweDtcbiAgcGFkZGluZzogMHB4O1xuICBib3JkZXItY29sb3I6ICM3ZmQ3ZTg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn0iXX0= */");
 
 /***/ }),
 
@@ -1253,6 +1266,7 @@ __webpack_require__.r(__webpack_exports__);
 let PivotLetterComponent = class PivotLetterComponent {
     constructor(services) {
         this.services = services;
+        this.prevChar = '';
         this.input = "o";
         this.pivotIsCollapsed = false;
         this.newUserInput = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
@@ -1260,11 +1274,19 @@ let PivotLetterComponent = class PivotLetterComponent {
         this.backspace = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.delete = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
-    ngOnInit() { }
+    ngOnInit() {
+        this.prevChar = this.input;
+        this.pivotEl = document.getElementById('pivot-input');
+    }
     expand() {
         this.pivotIsCollapsed = false;
     }
+    handleClick() {
+        this.services.setCursorPosition(this.pivotEl, 1);
+    }
     onUserInput(event) {
+        event.preventDefault();
+        this.services.setCursorPosition(this.pivotEl, 1);
         var isOneCharacter = this.input.length === 1;
         if (event.keyCode === 16 ||
             event.keyCode === 20 ||
@@ -1283,6 +1305,7 @@ let PivotLetterComponent = class PivotLetterComponent {
             if (!this.pivotIsCollapsed) {
                 this.pivotIsCollapsed = true;
                 this.input = "";
+                this.prevChar = "";
             }
             else {
                 if (event.keyCode === 8) {
@@ -1298,14 +1321,15 @@ let PivotLetterComponent = class PivotLetterComponent {
         else if (isOneCharacter) {
             this.pivotIsCollapsed = false;
             event.preventDefault();
+            this.prevChar = this.input;
             return;
         }
         else if (this.input.length === 2) {
-            var newCharacter = this.input.charAt(0);
             this.newUserInput.emit({
-                newChar: newCharacter
+                newChar: this.prevChar
             });
-            this.input = this.input.slice(1);
+            this.prevChar = this.input.charAt(1);
+            this.input = this.input.charAt(1);
         }
     }
 };
@@ -1345,7 +1369,7 @@ PivotLetterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".complete-text {\n  border: 5px solid #a57fe8;\n  border-radius: 1rem;\n  width: 75%;\n  margin-top: 10rem;\n  background-color: #faf4e1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGV4dC9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXGFwcFxcdGV4dFxcdGV4dC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdGV4dC9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXHNjc3NcXHZhcmlhYmxlcy5zY3NzIiwic3JjL2FwcC90ZXh0L3RleHQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0E7RUFDRSx5QkFBQTtFQUNBLG1CQUFBO0VBQ0EsVUFBQTtFQUNBLGlCQUFBO0VBQ0EseUJDVlc7QUNNYiIsImZpbGUiOiJzcmMvYXBwL3RleHQvdGV4dC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5AaW1wb3J0ICcuLi8uLi9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcclxuXHJcblxyXG5cclxuLmNvbXBsZXRlLXRleHQge1xyXG4gIGJvcmRlcjogNXB4IHNvbGlkICRlbXBoYXNpc19wdXJwbGU7XHJcbiAgYm9yZGVyLXJhZGl1czogMXJlbTtcclxuICB3aWR0aDogNzUlO1xyXG4gIG1hcmdpbi10b3A6IDEwcmVtO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICRtYWluX2NvbG9yO1xyXG59XHJcbiIsIiRtYWluX2NvbG9yOiAjZmFmNGUxO1xyXG4kc2Vjb25kYXJ5X21haW5fY29sb3I6I2U0Y2I3ZDtcclxuJGVtcGhhc2lzX2JsdWU6ICM3ZmQ3ZTg7XHJcbiRlbXBoYXNpc19wdXJwbGU6ICNhNTdmZTg7XHJcbiRibGFjazogYmxhY2s7XHJcbiRlbXBoYXNpc19ncmVlbjogI2JkZTM2NjtcclxuJGZvY3VzX2NvbG9yOiAjRkZEQ0UwO1xyXG4kdGl0bGVfY29sb3I6ICM2OTRmMTA7XHJcbiIsIi5jb21wbGV0ZS10ZXh0IHtcbiAgYm9yZGVyOiA1cHggc29saWQgI2E1N2ZlODtcbiAgYm9yZGVyLXJhZGl1czogMXJlbTtcbiAgd2lkdGg6IDc1JTtcbiAgbWFyZ2luLXRvcDogMTByZW07XG4gIGJhY2tncm91bmQtY29sb3I6ICNmYWY0ZTE7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".complete-text {\n  border: 5px solid #a57fe8;\n  border-radius: 1rem;\n  width: 75%;\n  margin-top: 10rem;\n  background-color: #faf4e1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdGV4dC9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXGFwcFxcdGV4dFxcdGV4dC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvdGV4dC9DOlxcVXNlcnNcXEFyaWVsXFxEb2N1bWVudHNcXFByb2dyYW1taW5nIHByb2plY3RzXFxwYWxpbmRyb21lci9zcmNcXHNjc3NcXHZhcmlhYmxlcy5zY3NzIiwic3JjL2FwcC90ZXh0L3RleHQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBS0E7RUFDRSx5QkFBQTtFQUNBLG1CQUFBO0VBQ0EsVUFBQTtFQUNBLGlCQUFBO0VBQ0EseUJDVlc7QUNNYiIsImZpbGUiOiJzcmMvYXBwL3RleHQvdGV4dC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uLy4uL3Njc3MvdmFyaWFibGVzLnNjc3MnO1xyXG5AaW1wb3J0ICcuLi8uLi9zY3NzL3ZhcmlhYmxlcy5zY3NzJztcclxuXHJcblxyXG5cclxuLmNvbXBsZXRlLXRleHQge1xyXG4gIGJvcmRlcjogNXB4IHNvbGlkICRlbXBoYXNpc19wdXJwbGU7XHJcbiAgYm9yZGVyLXJhZGl1czogMXJlbTtcclxuICB3aWR0aDogNzUlO1xyXG4gIG1hcmdpbi10b3A6IDEwcmVtO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICRtYWluX2NvbG9yO1xyXG59XHJcbiIsIiRtYWluX2NvbG9yOiAjZmFmNGUxO1xyXG4kc2Vjb25kYXJ5X21haW5fY29sb3I6I2U0Y2I3ZDtcclxuJGVtcGhhc2lzX2JsdWU6ICM3ZmQ3ZTg7XHJcbiRlbXBoYXNpc19wdXJwbGU6ICNhNTdmZTg7XHJcbiRibGFjazogYmxhY2s7XHJcbiRlbXBoYXNpc19ncmVlbjogI2JkZTM2NjtcclxuJGZvY3VzX2NvbG9yOiAjRkZEQ0UwO1xyXG4kdGl0bGVfY29sb3I6ICM2OTRmMTA7XHJcbiRlbXBoYXNpc19yZWQ6IHJlZCIsIi5jb21wbGV0ZS10ZXh0IHtcbiAgYm9yZGVyOiA1cHggc29saWQgI2E1N2ZlODtcbiAgYm9yZGVyLXJhZGl1czogMXJlbTtcbiAgd2lkdGg6IDc1JTtcbiAgbWFyZ2luLXRvcDogMTByZW07XG4gIGJhY2tncm91bmQtY29sb3I6ICNmYWY0ZTE7XG59Il19 */");
 
 /***/ }),
 

@@ -1,3 +1,9 @@
+*, *::after, *::before{
+  margin: 0;
+  padding:0;
+  box-sizing: inherit;
+}
+
 body {
   overflow-x: hidden;
   font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -938,6 +944,12 @@ fieldset[disabled] .btn-xl:hover {
   width: 100%;
   height: 180px;
 }
+
+.construction-img{
+  width:100%;
+  height: 30px;
+}
+
 
 @media (max-width:1000px) {
   .img-size {

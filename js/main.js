@@ -4,15 +4,19 @@ function initPage() {
 
 function renderProjs() {
   var elPortfolioContainer = document.querySelector("#portfolio-container");
-
+  var isHidden;
   var strHtmlPreviews = "";
 
   for (var i = 0; i < gProjs.length; i++) {
+  
     var proj = gProjs[i];
+    proj.underConstruction? isHidden='':isHidden="notDisplayed";
+
     strHtmlPreviews += `
     <div class="col-md-4 col-sm-6 portfolio-item" onclick="renderModal('${
       proj.id
     }')">
+    <img class="img-fluid construction-img  ${isHidden}" id="f" src='../img/portfolio/banner.png' alt="">
     <a class="portfolio-link" href=${proj.link}  >
       <div class="portfolio-hover">
         <div class="portfolio-hover-content">
@@ -24,11 +28,14 @@ function renderProjs() {
     <div class="portfolio-caption">
      <a target="_blank" href=${proj.link}><h4>${proj.name}</h4></a>
       <a  target="_blank" data-toggle="modal" href="#portfolioModal"><p class="text-muted">More info</p></a>
+      <p class="red ${isHidden}" id="k">(Under Construction)</p>
     </div>
+    <img class="img-fluid construction-img  ${isHidden}" id="f" src='../img/portfolio/banner.png' alt="">
   </div>`;
   }
-
   elPortfolioContainer.innerHTML = strHtmlPreviews;
+
+
 }
 function findProjIdx(projId) {
   var projIdx = gProjs.findIndex(function(proj) {

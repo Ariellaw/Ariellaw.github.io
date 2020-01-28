@@ -8,7 +8,8 @@ var gProjs = [
     link: "https://ariellagram.herokuapp.com/#/login",
     linkToGithub:"https://github.com/Ariellaw/my-insta",
     framework: "Vue",
-    labels: ["Vue", "keyboard events"]
+    labels: ["Vue", "keyboard events"],
+    underConstruction: false,
   },
   {
     id: makeId(),
@@ -19,6 +20,7 @@ var gProjs = [
     link: "palindromer",
     linkToGithub:"https://github.com/Ariellaw/palindromer",
     framework: "Angular",
-    labels: ["Angular", "keyboard events"]
+    labels: ["Angular", "keyboard events"],
+    underConstruction: true,
   }
 ];

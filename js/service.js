@@ -27,7 +27,7 @@ var gProjs = [
     id: makeId(),
     name: "Forecast",
     title: "World Weather Information Service",
-    description: "This us a weather information site build using Angular", 
+    description: "This is a weather information site build using Angular", 
     imgUrl: "img/portfolio/forecast.PNG",
     link: "https://ariella-forecast-app.herokuapp.com/home",
     linkToGithub:"https://github.com/Ariellaw/Ariella-Wills-25-3-2020",

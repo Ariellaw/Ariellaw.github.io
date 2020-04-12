@@ -13,18 +13,6 @@ var gProjs = [
   },
   {
     id: makeId(),
-    name: "Palindromer",
-    title: "Palindromer",
-    description: "This is my first Angular project.  It helps users create palindromes, which are words or sentences that read the same way forwards or backwards.",
-    imgUrl: "img/portfolio/palindromer.PNG",
-    link: "palindromer",
-    linkToGithub:"https://github.com/Ariellaw/palindromer",
-    framework: "Angular",
-    labels: ["Angular", "keyboard events"],
-    underConstruction: true,
-  },
-  {
-    id: makeId(),
     name: "Forecast",
     title: "World Weather Information Service",
     description: "This is a weather information site build using Angular", 
@@ -34,5 +22,17 @@ var gProjs = [
     framework: "Angular",
     labels: ["Angular"],
     underConstruction: false,
+  },
+  {
+    id: makeId(),
+    name: "Palindromer",
+    title: "Palindromer",
+    description: "This is my first Angular project.  It helps users create palindromes, which are words or sentences that read the same way forwards or backwards.",
+    imgUrl: "img/portfolio/palindromer.PNG",
+    link: "palindromer",
+    linkToGithub:"https://github.com/Ariellaw/palindromer",
+    framework: "Angular",
+    labels: ["Angular", "keyboard events"],
+    underConstruction: true,
   }
 ];
